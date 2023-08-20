@@ -1,0 +1,55 @@
+.fb-editor {
+	background-image: #f2f2f2;
+	/*background: url('http://formbuilder.readthedocs.io/en/latest/img/noise.png');*/
+}
+.five {
+	width: 5% !important;
+}
+.ten {
+	width: 10% !important;
+}
+.fifteen {
+	width: 15% !important;
+}
+.twenty {
+	width: 20% !important;
+}
+.twenty-five {
+	width: 25% !important;
+}
+.d-inline-block {
+	display: inline-block !important;
+}
+.rendered-form .form-control {
+    background: none;
+    font-size: 18px!important;
+    padding: 25px 30px!important;
+}
+.rendered-form h1{
+    line-height: 1.22;
+    font-size: 45px;
+}
+.rendered-form label{
+    font-size: 20px;
+    cursor: pointer;
+    font-weight: lighter;
+    margin-bottom: 10px;
+    color: #293043;
+    font-family: "Merriweather", serif;
+}
+
+
+
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+input:focus, button:focus, .form-control:focus {
+    outline: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-color: #cfdbf1;
+}
