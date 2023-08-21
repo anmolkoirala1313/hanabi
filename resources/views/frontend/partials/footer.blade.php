@@ -104,7 +104,7 @@
                             <div class="res-767-pb-18">
                                 <p>{{@$setting_data->address ?? ''}}</p>
                                 <p>Call: <strong><a href="tel:{{@$setting_data->phone ?? $setting_data->mobile ?? ''}}">{{@$setting_data->phone ?? $setting_data->mobile ?? ''}}</a></strong></p>
-                                <p>Email: <strong><a href="mailto:{{@$setting_data->email ?? ''}}">{{@$setting_data->address ?? ''}}</a></strong></p>
+                                <p>Email: <strong><a href="mailto:{{@$setting_data->email ?? ''}}">{{@$setting_data->email ?? ''}}</a></strong></p>
                             </div>
                         </div>
                     </div>

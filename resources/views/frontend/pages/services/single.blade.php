@@ -39,42 +39,87 @@
 
 @section('content')
 
-    <section class="page-title" style="background-image: url({{ asset('assets/frontend/images/background/page-title.jpg') }});">
-        <div class="auto-container">
-            <div class="title-outer">
-                <h1 class="title">{{ $singleService->title }}</h1>
-                <ul class="page-breadcrumb">
-                    <li><a href="/">Home</a></li>
-                    <li>Service Detail</li>
-                </ul>
-            </div>
-        </div>
-    </section>
 
-    <section class="services-details">
-        <div class="container">
-            <div class="row">
-                <!--Start Services Details Sidebar-->
-                <div class="col-xl-4 col-lg-4">
-                    @include('frontend.pages.services.sidebar')
-                </div>
-                <!--End Services Details Sidebar-->
-
-                <!--Start Services Details Content-->
-                <div class="col-xl-8 col-lg-8">
-                    <div class="services-details__content">
-                        <img src="{{asset('/images/service/'.@$singleService->banner_image)}}" alt="" />
-                        <h2 class="mt-4">{{ ucwords(@$singleService->title) }}</h2>
-                        <div class="custom-description">
-                            {!! @$singleService->description ?? ''!!}
+    <div class="prt-titlebar-wrapper prt-bg">
+        <div class="prt-titlebar-wrapper-bg-layer prt-bg-layer"></div>
+        <div class="prt-titlebar-wrapper-inner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="prt-page-title-row-heading">
+                            <div class="page-title-heading">
+                                <h2 class="title">{{ $singleService->title }}</h2>
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <i class="flaticon-home"></i>
+                                <span>
+                                        <a title="Homepage" href="/">Home</a>
+                                    </span>
+                                <div class="prt-sep"> - </div>
+                                <span>Service Detail</span>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!--End Services Details Content-->
             </div>
         </div>
-    </section>
+    </div>
 
+    <!--site-main start-->
+    <div class="site-main">
+
+        <!--sidebar-->
+        <div class="sidebar prt-sidebar-left prt-blog bg-base-grey clearfix">
+            <div class="container">
+                <!-- row -->
+                <div class="row g-0">
+                    <div class="col-lg-4 widget-area sidebar-left">
+                        @include('frontend.pages.services.sidebar')
+                    </div>
+                    <div class="col-lg-8 content-area prt-blog-single">
+                        <div class="prt-blog-single-content">
+                                <div class="prt_single_image-wrapper">
+                                    <img class="img-fluid lazy" width="1200" height="720" data-src="{{asset('/images/service/'.@$singleService->banner_image)}}" alt="">
+                                </div>
+                                <div class="entry-content">
+                                    <div class="prt-box-desc-text">
+                                        <h3 class="comment-reply-title">{{ ucwords(@$singleService->title) }}</h3>
+                                        <div class="pt-10 custom-description text-justify">
+                                            {!! @$singleService->description ?? ''!!}
+                                        </div>
+
+                                        <div class="blog-tag-and-media-block">
+                                            <div class="social-media-block">
+{{--                                                <div class="prt_tag_lists">--}}
+{{--                                                    <span class="prt-tags-links-title">Category:</span>--}}
+{{--                                                    <span class="prt-tags-links">--}}
+{{--                                                        <a href="{{route('blog.category',$singleBlog->category->slug)}}">{{@$singleBlog->category->name }}</a>--}}
+{{--                                                </span>--}}
+{{--                                                </div>--}}
+                                            </div>
+                                            <div class="prt-social-share-wrapper align-self-center res-575-mt-15">
+                                                <ul class="social-icons square">
+                                                    <li class="social-facebook">
+                                                        <a href="#" tabindex="0" rel="noopener" aria-label="facebook"><i onclick='fbShare("{{route('service.single',$singleService->slug)}}")' class="fab fa-facebook" aria-hidden="true"></i></a>
+                                                    </li>
+                                                    <li class="social-twitter">
+                                                        <a href="#" tabindex="0" rel="noopener" aria-label="twitter"><i onclick='twitShare("{{route('service.single',$singleService->slug)}}","{{ $singleService->title }}")' class="fab fa-twitter" aria-hidden="true"></i></a>
+                                                    </li>
+                                                    <li class="social-pinterest">
+                                                        <a href="#" tabindex="0" rel="noopener" aria-label="pinterest"><i onclick='whatsappShare("{{route('service.single',$singleService->slug)}}","{{ $singleService->title }}")' class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div><!-- row end -->
+            </div>
+        </div>
+        <!--sidebar end-->
+    </div><!-- site-main end-->
 @endsection
 @section('js')
 <script>

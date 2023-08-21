@@ -6,41 +6,90 @@
 @section('content')
 
 
-    <section class="page-title" style="background-image: url({{ asset('assets/frontend/images/background/page-title.jpg') }});">
-        <div class="auto-container">
-            <div class="title-outer">
-                <h1 class="title">Our Services</h1>
-                <ul class="page-breadcrumb">
-                    <li><a href="/">Home</a></li>
-                    <li>Service</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="news-section">
-        <div class="auto-container">
-            <div class="row">
-                @foreach(@$allservices as $index=>$service)
-                    <div class="news-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <figure class="image"><a href="{{route('service.single',$service->slug)}}">
-                                        <img src="{{asset('/images/service/thumb/thumb_'.@$service->banner_image)}}" alt=""></a></figure>
+    <div class="prt-titlebar-wrapper prt-bg">
+        <div class="prt-titlebar-wrapper-bg-layer prt-bg-layer"></div>
+        <div class="prt-titlebar-wrapper-inner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="prt-page-title-row-heading">
+                            <div class="page-title-heading">
+                                <h2 class="title">Our Category</h2>
                             </div>
-                            <div class="content-box">
-                                <h4 class="title"><a href="{{route('service.single',$service->slug)}}">{{ucwords(@$service->title)}}</a></h4>
-                                <a href="{{route('service.single',$service->slug)}}" class="read-more">Read More <i class="fa fa-long-arrow-alt-right"></i></a>
+                            <div class="breadcrumb-wrapper">
+                                <i class="flaticon-home"></i>
+                                <span>
+                                        <a title="Homepage" href="/">Home</a>
+                                    </span>
+                                <div class="prt-sep"> - </div>
+                                <span>Category</span>
                             </div>
                         </div>
                     </div>
-                @endforeach
-                <div class="service-block col-lg-12 col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="300ms">
-                    {{ $allservices->links('vendor.pagination.simple-bootstrap-4') }}
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
 
+    <!--site-main start-->
+    <div class="site-main">
+
+        <!--sidebar-->
+        <div class="sidebar prt-sidebar-left prt-blog bg-base-grey clearfix">
+            <div class="container">
+                <!-- row -->
+                <div class="row g-0">
+                    <div class="col-lg-4 widget-area sidebar-left">
+                        @include('frontend.pages.services.sidebar')
+                    </div>
+                    <div class="col-lg-8 content-area prt-blog-single">
+                        <div class="row">
+                            @foreach(@$allservices as $index=>$service)
+                                <div class="col-lg-6 col-md-6">
+                                    <!-- featured-imagebox-post -->
+                                    <div class="featured-imagebox featured-imagebox-services style1" style="margin-top: 0px">
+                                        <!-- featured-thumbnail -->
+                                        <div class="featured-thumbnail">
+                                            <img class="img-fluid" src="{{asset('/images/service/thumb/thumb_'.@$service->banner_image)}}" alt="blog_img">
+                                        </div><!-- featured-thumbnail end-->
+                                        <div class="featured-details-wrap">
+                                            <div class="featured-content">
+                                                <div class="featured-title">
+                                                    <h3><a href="{{route('service.single',$service->slug)}}" tabindex="0">{{ucwords(@$service->title)}}</a></h3>
+                                                </div>
+                                            </div>
+                                            <div class="featured-explore-more">
+                                                <a href="{{route('service.single',$service->slug)}}">Explore more</a>
+                                            </div>
+                                        </div>
+                                        <div class="services-details-wrap">
+                                            <div class="services-details-box">
+                                                <div class="services-content">
+                                                    <div class="services-title">
+                                                        <h3><a href="{{route('service.single',$service->slug)}}" tabindex="0">{{ucwords(@$service->title)}}</a></h3>
+                                                    </div>
+                                                    <div class="services-desc">
+                                                        <p>{{ elipsis( strip_tags($service->description) )}}</p>
+                                                    </div>
+                                                </div>
+                                                <div class="services-explore-more">
+                                                    <a href="{{route('service.single',$service->slug)}}">Explore more</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div><!-- featured-imagebox-post end -->
+                                </div>
+                            @endforeach
+                            <div class="pagination-block">
+                                {{ $allservices->links('vendor.pagination.default') }}
+                            </div>
+                        </div>
+
+                    </div>
+                </div><!-- row end -->
+            </div>
+        </div>
+        <!--sidebar end-->
+    </div><!-- site-main end-->
 @endsection

@@ -337,7 +337,7 @@ class FrontController extends Controller
     }
 
     public function service(){
-        $allservices = $this->service->paginate(6);
+        $allservices = $this->service->paginate(4);
 
         $latestServices = $this->service->orderBy('created_at', 'DESC')->take(4)->get();
 
