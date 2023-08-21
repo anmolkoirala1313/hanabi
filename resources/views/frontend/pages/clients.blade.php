@@ -23,8 +23,8 @@
         }
 
         .btn-filter.active{
-            color: var(--text-color-bg-theme-color1);
-            background-color: var(--theme-color1);
+            color: var(--base-white);
+            background-color: var(--base-skin);
         }
         .scale-anm img{
             -webkit-transition: all 300ms ease;
@@ -39,51 +39,58 @@
 @section('content')
 
 
-    <section class="page-title" style="background-image: url({{ asset('assets/frontend/images/background/page-title.jpg') }});">
-        <div class="auto-container">
-            <div class="title-outer">
-                <h1 class="title">Our Clients</h1>
-                <ul class="page-breadcrumb">
-                    <li><a href="/">Home</a></li>
-                    <li>Our Clients</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <!--Start courses Details-->
-    <section class="course-details">
-        <div class="container">
-            <div class="row flex-xl-row-reverse">
-                <!--Start courses Details Content-->
-                <div class="col-xl-12 col-lg-12">
-                    <div class="courses-details__content">
-                        <section class="product-description">
-                            <div class="container pt-0 pb-90">
-                                <div class="product-discription">
-                                    <div class="tabs-box">
-                                        <div id="filters" class="toolbar mb2 mt2">
-                                            <button class="btn-filter fil-cat filter active"  data-filter="all">All</button>
-                                            @foreach($country as $index=>$cn)
-                                                <button class="btn-filter fil-cat filter" data-rel="{{$index}}" data-filter=".{{$index}}">{{ ucfirst($cn) }}</button>
-                                            @endforeach
-                                        </div>
-                                        <div id="portfolio"  class="row">
-                                            @foreach($clients as $client)
-                                                <div class="mt-4 col-lg-3 col-md-3 tile scale-anm {{$client->country}}">
-                                                        <a href="#"><img src="{{asset('/images/clients/'.@$client->image)}}" alt=""></a>
-                                                </div>
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                </div>
+    <div class="prt-titlebar-wrapper prt-bg">
+        <div class="prt-titlebar-wrapper-bg-layer prt-bg-layer"></div>
+        <div class="prt-titlebar-wrapper-inner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="prt-page-title-row-heading">
+                            <div class="page-title-heading">
+                                <h2 class="title">Our Clients</h2>
                             </div>
-                        </section>
+                            <div class="breadcrumb-wrapper">
+                                <i class="flaticon-home"></i>
+                                <span>
+                                        <a title="Homepage" href="/">Home</a>
+                                    </span>
+                                <div class="prt-sep"> - </div>
+                                <span>Our Clients</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <div class="site-main">
+
+        <!--services-section-->
+        <section class="prt-row service01-services-section clearfix" style="padding: 90px 0 90px;">
+            <div class="prt-row-wrapper-bg-layer prt-bg-layer"></div>
+            <div class="container">
+                <div class="product-discription">
+                    <div class="tabs-box">
+                        <div id="filters" class="toolbar mb2 mt2">
+                            <button class="btn-filter fil-cat filter active"  data-filter="all">All</button>
+                            @foreach($country as $index=>$cn)
+                                <button class="btn-filter fil-cat filter" data-rel="{{$index}}" data-filter=".{{$index}}">{{ ucfirst($cn) }}</button>
+                            @endforeach
+                        </div>
+                        <div id="portfolio"  class="row">
+                            @foreach($clients as $client)
+                                <div class="mt-4 col-lg-3 col-md-3 tile scale-anm {{$client->country}}">
+                                        <a href="#"><img class="img-fluid" src="{{asset('/images/clients/'.@$client->image)}}" alt=""></a>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
 @endsection
 @section('js')
     <script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>

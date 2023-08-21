@@ -20,37 +20,61 @@
 @endsection
 @section('content')
 
-    <section class="page-title" style="background-image: url({{ asset('assets/frontend/images/background/page-title.jpg') }});">
-        <div class="auto-container">
-            <div class="title-outer">
-                <h1 class="title">{{ucwords(@$singleAlbum->name)}}'s Gallery</h1>
-                <ul class="page-breadcrumb">
-                    <li><a href="/">Home</a></li>
-                    <li>Album Gallery</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="gallery-section">
-        <div class="auto-container">
-            <div class="row">
-            @if(count(@$singleAlbum->gallery) > 0)
-                @foreach($singleAlbum->gallery as $index=>$gallery)
-                    <div class="col-lg-4 col-md-4 col-sm-12 mt-3 wow fadeInUp">
-                        <div class="card" style="border: none">
-                            <div class="card-image gallery-item">
-                                <a href="{{asset('/images/albums/gallery/'.@$gallery->filename)}}" data-fancybox="gallery">
-                                    <img src="{{asset('/images/albums/gallery/'.@$gallery->filename)}}" class="img-wrapper" alt="Image Gallery">
-                                </a>
+    <div class="prt-titlebar-wrapper prt-bg">
+        <div class="prt-titlebar-wrapper-bg-layer prt-bg-layer"></div>
+        <div class="prt-titlebar-wrapper-inner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="prt-page-title-row-heading">
+                            <div class="page-title-heading">
+                                <h2 class="title">{{ucwords(@$singleAlbum->name)}}'s Gallery</h2>
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <i class="flaticon-home"></i>
+                                <span>
+                                        <a title="Homepage" href="/">Home</a>
+                                    </span>
+                                <div class="prt-sep"> - </div>
+                                <span>Album Gallery</span>
                             </div>
                         </div>
                     </div>
-                @endforeach
-             @endif
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+
+
+    <div class="site-main">
+
+        <!--services-section-->
+        <section class="prt-row service01-services-section clearfix" style="    padding: 70px 0 70px;">
+            <div class="prt-row-wrapper-bg-layer prt-bg-layer"></div>
+            <div class="container">
+                <div class="row">
+                    @if(count(@$singleAlbum->gallery) > 0)
+                        @foreach($singleAlbum->gallery as $index=>$gallery)
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <!-- featured-imagebox -->
+                                <div class="featured-imagebox featured-imagebox-portfolio style1">
+                                    <div class="card" style="border: none">
+                                        <div class="card-image gallery-item">
+                                            <a href="{{asset('/images/albums/gallery/'.@$gallery->filename)}}" data-fancybox="gallery">
+                                                <img src="{{asset('/images/albums/gallery/'.@$gallery->filename)}}" class="img-wrapper" alt="Image Gallery">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div><!-- featured-imagebox end-->
+                            </div>
+
+                        @endforeach
+                     @endif
+                </div>
+            </div>
+        </section>
+        <!--services-section end-->
+    </div>
 
 
 
