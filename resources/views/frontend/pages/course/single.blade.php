@@ -39,86 +39,117 @@
 
 @section('content')
 
-    <section class="page-title" style="background-image: url({{ asset('assets/frontend/images/background/page-title.jpg') }});">
-        <div class="auto-container">
-            <div class="title-outer">
-                <h1 class="title">{{ $row->title }}</h1>
-                <ul class="page-breadcrumb">
-                    <li><a href="/">Home</a></li>
-                    <li>Course Detail</li>
-                </ul>
+    <div class="prt-titlebar-wrapper prt-bg">
+        <div class="prt-titlebar-wrapper-bg-layer prt-bg-layer"></div>
+        <div class="prt-titlebar-wrapper-inner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="prt-page-title-row-heading">
+                            <div class="page-title-heading">
+                                <h2 class="title">{{ $row->title }}</h2>
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <i class="flaticon-home"></i>
+                                <span>
+                                        <a title="Homepage" href="/">Home</a>
+                                    </span>
+                                <div class="prt-sep"> - </div>
+                                <span>Course details</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
-    <!--Start courses Details-->
-    <section class="course-details">
-        <div class="container">
-            <div class="row flex-xl-row-reverse">
-                <!--Start courses Details Content-->
-                <div class="col-xl-8 col-lg-8">
-                    <div class="courses-details__content">
-                        <img src="{{ @$row->image ? asset('/images/course/'.@$row->image):''}}" alt="" />
-                        <div class="sec-title text-center mb-20">
-                            <h2 class="mt-4">{{ $row->title }}</h2>
-                        </div>
-                        <section class="product-description">
-                            <div class="container pt-0 pb-90">
-                                <div class="product-discription">
-                                    <div class="tabs-box">
-                                        <div class="tab-btn-box text-center">
-                                            <ul class="tab-btns tab-buttons clearfix">
+    </div>
 
-                                                @if($row->description)
-                                                    <li class="tab-btn active-btn" data-tab="#tab-description">Description</li>
-                                                @endif
+    <div class="site-main">
 
-                                                @if($row->courseDescription)
-                                                    @foreach($row->courseDescription as $index=>$detail)
-                                                            <li class="tab-btn {{ $detail->description ? '': ($loop->first ? 'active-btn':'') }}" data-tab="#tab-{{$index}}">{{ $detail->title }}</li>
-                                                    @endforeach
-                                                @endif
+        <!--sidebar-->
+        <div class="sidebar prt-sidebar-right prt-blog bg-base-grey clearfix">
+            <div class="container">
+                <!-- row -->
+                <div class="row g-0">
+                    <div class="col-lg-8 content-area prt-blog-single">
+                        <div class="prt-blog-single-content">
+                            <div class="prt_single_image-wrapper">
+                                <img class="img-fluid lazy" width="1200" height="720" data-src="{{ @$row->image ? asset('/images/course/'.@$row->image):''}}" alt="">
+                            </div>
+                            <div class="entry-content">
+                                <div class="prt-box-desc-text">
+                                    <h3 class="comment-reply-title">{{ $row->title }}</h3>
+                                    <div class="row mt-40">
+                                        <div class="col-lg-12">
+                                            <div class="prt-tabs style3 clearfix">
+                                                <ul class="tabs">
+                                                    @if($row->description)
+                                                        <li class="tab active d-flex align-items-stretch"><a href="#">Description</a></li>
+                                                    @endif
 
-
-                                            </ul>
-                                        </div>
-                                        <div class="tabs-content">
-
-                                            @if($row->description)
-                                                <div class="tab active-tab" id="tab-description">
-                                                    <div class="text">
-                                                        <h3 class="product-description__title">Description</h3>
-                                                        <div class="product-description__text1 custom-description">
-                                                            {!! $row->description ?? '' !!}
+                                                    @if($row->courseDescription)
+                                                        @foreach($row->courseDescription as $index=>$detail)
+                                                                <li class="tab d-flex align-items-stretch"><a href="#">{{ $detail->title }}</a></li>
+                                                            @endforeach
+                                                    @endif
+                                                </ul>
+                                                <div class="content-tab bg-base-white">
+                                                    <div class="content-inner">
+                                                        <div class="row g-0">
+                                                            <div class="col-xl-12 col-lg-6 col-md-12">
+                                                                <div class="pl-15 res-991-pl-0 res-991-pt-30 text-start custom-description text-justify">
+                                                                    {!! $row->description ?? '' !!}
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
+
+                                                    @if($row->courseDescription)
+                                                        @foreach($row->courseDescription as $index=>$detail)
+                                                            @include('frontend.pages.course.includes.course_description')
+                                                        @endforeach
+                                                    @endif
                                                 </div>
-                                            @endif
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                            @if($row->courseDescription)
-                                                @foreach($row->courseDescription as $index=>$detail)
-                                                    @include('frontend.pages.course.includes.course_description')
-                                                @endforeach
-                                            @endif
-
+                                    <div class="blog-tag-and-media-block">
+{{--                                        <div class="social-media-block">--}}
+{{--                                            <div class="prt_tag_lists">--}}
+{{--                                                <span class="prt-tags-links-title">Category:</span>--}}
+{{--                                                <span class="prt-tags-links">--}}
+{{--                                                        <a href="{{route('blog.category',$singleBlog->category->slug)}}">{{@$singleBlog->category->name }}</a>--}}
+{{--                                                </span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+                                        <div class="prt-social-share-wrapper align-self-center res-575-mt-15">
+                                            <ul class="social-icons square">
+                                                <li class="social-facebook">
+                                                    <a href="#" tabindex="0" rel="noopener" aria-label="facebook"><i onclick='fbShare("{{route('study-abroad.single',$row->slug)}}")' class="fab fa-facebook" aria-hidden="true"></i></a>
+                                                </li>
+                                                <li class="social-twitter">
+                                                    <a href="#" tabindex="0" rel="noopener" aria-label="twitter"><i onclick='twitShare("{{route('study-abroad.single',$row->slug)}}","{{ $row->title }}")' class="fab fa-twitter" aria-hidden="true"></i></a>
+                                                </li>
+                                                <li class="social-pinterest">
+                                                    <a href="#" tabindex="0" rel="noopener" aria-label="pinterest"><i onclick='whatsappShare("{{route('study-abroad.single',$row->slug)}}","{{ $row->title }}")' class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                                                </li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </section>
-
-
+                        </div>
                     </div>
-                </div>
-                <!--End courses Details Content-->
-
-                <!--Start courses Details Sidebar-->
-                <div class="col-xl-4 col-lg-4">
-                    @include('frontend.pages.course.sidebar')
-                </div>
-                <!--End courses Details Sidebar-->
+                    <div class="col-lg-4 widget-area sidebar-right">
+                        @include('frontend.pages.course.sidebar')
+                    </div>
+                </div><!-- row end -->
             </div>
         </div>
-    </section>
+        <!--sidebar end-->
+
+    </div><!-- site-main end-->
 
 @endsection
 @section('js')

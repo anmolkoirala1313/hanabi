@@ -11,50 +11,76 @@
 @endsection
 @section('content')
 
-    <section class="page-title" style="background-image: url({{ asset('assets/frontend/images/background/page-title.jpg') }});">
-        <div class="auto-container">
-            <div class="title-outer">
-                <h1 class="title">Study Abroad</h1>
-                <ul class="page-breadcrumb">
-                    <li><a href="/">Home</a></li>
-                    <li>Course List</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="">
-        <div class="container">
-            <div class="row">
-                @foreach(@$rows as $index=>$latest)
-                    <div class="service-block col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
-                        <div class="inner-box">
-                            <div class="image-box">
-                                <figure class="image"><a href="{{ route('study-abroad.single', $latest->slug) }}">
-                                        <img class="lazy" data-src="{{ @$latest->image ? asset('/images/course/'.@$latest->image):''}}" alt=""></a>
-                                </figure>
-                                <div class="icon-box"><i class="icon fa fa-graduation-cap"></i></div>
+    <div class="prt-titlebar-wrapper prt-bg">
+        <div class="prt-titlebar-wrapper-bg-layer prt-bg-layer"></div>
+        <div class="prt-titlebar-wrapper-inner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="prt-page-title-row-heading">
+                            <div class="page-title-heading">
+                                <h2 class="title">Study Abroad</h2>
                             </div>
-                            <div class="content-box">
-                                <h5 class="title"><a href="{{ route('study-abroad.single', $latest->slug) }}">
-                                        {{ $latest->title ?? '' }}
-                                    </a></h5>
-                                <div class="text">
-                                    {{ elipsis( strip_tags($latest->description ?? '') )}}
-                                </div>
-                                <a href="{{ route('study-abroad.single',$latest->slug) }}" class="read-more">Read More <i class="fa fa-long-arrow-alt-right"></i></a>
+                            <div class="breadcrumb-wrapper">
+                                <i class="flaticon-home"></i>
+                                <span>
+                                        <a title="Homepage" href="/">Home</a>
+                                    </span>
+                                <div class="prt-sep"> - </div>
+                                <span>Course List</span>
                             </div>
                         </div>
                     </div>
-                @endforeach
-                <div class="service-block col-lg-12 col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="300ms">
-                    {{ $rows->links('vendor.pagination.simple-bootstrap-4') }}
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
+    <div class="site-main">
 
+        <!--sidebar-->
+        <div class="sidebar prt-sidebar-right prt-blog bg-base-grey clearfix">
+            <div class="container">
+                <!-- row -->
+                <div class="row g-0">
+                    <div class="col-lg-8 content-area prt-blog-classic">
+                        <div class="prt-blog-classic-content">
+                            <div class="row">
+                                @foreach($rows as $index=>$latest)
+                                    <div class="col-lg-6 col-md-6">
+                                        <div class="feaured-imagebox featured-imagebox-services style2">
+                                            <div class="prt-box-view-overlay prt-portfolio-box-view-overlay">
+                                                <div class="featured-thumbnail">
+                                                    <img class="img-fluid" src="{{ @$latest->image ? asset('/images/course/thumb/thumb_'.@$latest->image):''}}" alt="">
+                                                </div>
+                                                <div class="featured-content">
+                                                    <div class="featured-title">
+                                                        <h3><a href="{{ route('study-abroad.single',$latest->slug) }}" tabindex="0"> {{ $latest->title ?? '' }}</a></h3>
+                                                    </div>
+                                                    <div class="featured-desc">
+                                                        <p>
+                                                            {{ elipsis( strip_tags($latest->description ?? '') )}}
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                                <div class="pagination-block">
+                                    {{ $rows->links('vendor.pagination.default') }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 widget-area sidebar-right">
+                        @include('frontend.pages.course.sidebar')
+                    </div>
+                </div><!-- row end -->
+            </div>
+        </div>
+        <!--sidebar end-->
 
+    </div><!-- site-main end-->
 
 @endsection

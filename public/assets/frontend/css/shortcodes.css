@@ -3957,9 +3957,9 @@ form.contact_form select:focus {
 .prt-tabs.style3 ul.tabs {
     position: relative;
     display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
+    -webkit-box-pack: start;
+    -ms-flex-pack: start;
+    justify-content: start;
     border: 1px solid #d4d4d4;
 }
 .prt-tabs.style3 ul.tabs:before {
