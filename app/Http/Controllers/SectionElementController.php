@@ -168,7 +168,7 @@ class SectionElementController extends Controller
                 $image        = $request->file('image');
                 $name         = uniqid().'_basic_'.$image->getClientOriginalName();
                 $path         = base_path().'/public/images/section_elements/basic_section/';
-                $moved        = Image::make($image->getRealPath())->fit(750, 750)->orientate()->save($path.$name);
+                $moved        = Image::make($image->getRealPath())->fit(540, 530)->orientate()->save($path.$name);
                 if ($moved){
                     $data['image']= $name;
                 }
@@ -388,7 +388,7 @@ class SectionElementController extends Controller
                 $image                = $request->file('image');
                 $name                 = uniqid().'_basic_'.$image->getClientOriginalName();
                 $path                 = base_path().'/public/images/section_elements/basic_section/';
-                $moved                = Image::make($image->getRealPath())->fit(750, 750)->orientate()->save($path.$name);
+                $moved                = Image::make($image->getRealPath())->fit(540, 530)->orientate()->save($path.$name);
                 if ($moved){
                     $basic->image = $name;
                     if (!empty($oldimage) && file_exists(public_path().'/images/section_elements/basic_section/'.$oldimage)){
