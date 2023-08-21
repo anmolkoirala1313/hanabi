@@ -11,60 +11,73 @@
 @endsection
 @section('content')
 
-    <section class="page-title" style="background-image: url({{ asset('assets/frontend/images/background/page-title.jpg') }});">
-        <div class="auto-container">
-            <div class="title-outer">
-                <h1 class="title">Test Preparation</h1>
-                <ul class="page-breadcrumb">
-                    <li><a href="/">Home</a></li>
-                    <li>Test Preparation</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="services-details">
-        <div class="container">
-            <div class="row">
-                <!--Start Services Details Sidebar-->
-                <div class="col-xl-4 col-lg-4">
-                   @include('frontend.pages.test_preparation.sidebar')
-                </div>
-                <!--End Services Details Sidebar-->
-
-                <!--Start Services Details Content-->
-                <div class="col-xl-8 col-lg-8">
-                    <div class="row">
-                        @foreach(@$rows as $index=>$latest)
-                            <div class="training-block-two col-lg-6 col-md-6 col-sm-12">
-                                <div class="inner-box">
-                                    <div class="image-box">
-                                        <figure class="image">
-                                            <a href="{{ route('test-preparation.single', $latest->slug) }}">
-                                                <img class="lazy" data-src="{{ @$latest->image ? asset('/images/test_preparation/thumb/thumb_'.@$latest->image):''}}" alt=""></a>
-                                        </figure>
-                                        <div class="info-box">
-                                            <h5 class="title"><a href="{{ route('test-preparation.single', $latest->slug) }}">
-                                                    {{ $latest->title ?? ''}}
-                                                </a></h5>
-                                            <div class="text">
-                                                {{ elipsis( strip_tags($latest->summary ?? '') )}}
-                                            </div>
-                                            <a href="{{ route('test-preparation.single', $latest->slug) }}" class="read-more"><i class="fa fa-long-arrow-alt-right"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
+    <div class="prt-titlebar-wrapper prt-bg">
+        <div class="prt-titlebar-wrapper-bg-layer prt-bg-layer"></div>
+        <div class="prt-titlebar-wrapper-inner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="prt-page-title-row-heading">
+                            <div class="page-title-heading">
+                                <h2 class="title">Test Preparation</h2>
                             </div>
-                        @endforeach
-                        <div class="service-block col-lg-12 col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="300ms">
-                            {{ $rows->links('vendor.pagination.simple-bootstrap-4') }}
+                            <div class="breadcrumb-wrapper">
+                                <i class="flaticon-home"></i>
+                                <span>
+                                        <a title="Homepage" href="/">Home</a>
+                                    </span>
+                                <div class="prt-sep"> - </div>
+                                <span>Test Preparation</span>
+                            </div>
                         </div>
                     </div>
-
                 </div>
-                <!--End Services Details Content-->
             </div>
         </div>
-    </section>
+    </div>
 
+    <!--site-main start-->
+    <div class="site-main">
+
+        <!--sidebar-->
+        <div class="sidebar prt-sidebar-left prt-blog bg-base-grey clearfix">
+            <div class="container">
+                <!-- row -->
+                <div class="row g-0">
+                    <div class="col-lg-4 widget-area sidebar-left">
+                        @include('frontend.pages.test_preparation.sidebar')
+                    </div>
+                    <div class="col-lg-8 content-area prt-blog-single">
+                        <div class="row">
+                            @foreach(@$rows as $index=>$latest)
+                                <div class="col-lg-6 col-md-6">
+                                    <!-- featured-imagebox -->
+                                    <div class="featured-imagebox featured-imagebox-tab">
+                                        <div class="featured-thumbnail">
+                                            <img class="img-fluid lazy" width="656" height="484" data-src="{{ @$latest->image ? asset('/images/test_preparation/thumb/thumb_'.@$latest->image):''}}" alt="">
+                                        </div>
+                                        <div class="featured-content" style="background-color: #fff;height: 155px;">
+                                            <div class="featured-title">
+                                                <h3><a href="{{ route('test-preparation.single', $latest->slug) }}">  {{ $latest->title }}</a></h3>
+                                            </div>
+                                            <div class="featured-desc text-justify">
+                                                <p>
+                                                    {{ elipsis( strip_tags($latest->summary ?? '') )}}
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div><!-- featured-imagebox end-->
+                                </div>
+                            @endforeach
+                            <div class="pagination-block">
+                                {{ $rows->links('vendor.pagination.default') }}
+                            </div>
+                        </div>
+
+                    </div>
+                </div><!-- row end -->
+            </div>
+        </div>
+        <!--sidebar end-->
+    </div><!-- site-main end-->
 @endsection
