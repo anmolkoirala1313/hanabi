@@ -3669,10 +3669,7 @@ div:hover > .prt-box-view-overlay:before, div:hover > .prt-box-view-content-inne
     color: rgba(255, 255, 255, 0.80);
     background-color: transparent;
     line-height: 28px;
-    overflow: hidden;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
 }
 
 .slick-current.slick-active+.slick-active .testimonials.style2 { background-color: rgb(0 58 102 / 95%); }

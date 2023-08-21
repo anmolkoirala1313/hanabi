@@ -3,50 +3,70 @@
 @section('css')
 @endsection
 @section('content')
-    <section class="page-title" style="background-image: url({{ asset('assets/frontend/images/background/page-title.jpg') }});">
-        <div class="auto-container">
-            <div class="title-outer">
-                <h1 class="title">Our stories</h1>
-                <ul class="page-breadcrumb">
-                    <li><a href="/">Home</a></li>
-                    <li>Testimonials</li>
-                </ul>
+
+    <div class="prt-titlebar-wrapper prt-bg">
+        <div class="prt-titlebar-wrapper-bg-layer prt-bg-layer"></div>
+        <div class="prt-titlebar-wrapper-inner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="prt-page-title-row-heading">
+                            <div class="page-title-heading">
+                                <h2 class="title">Our stories</h2>
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <i class="flaticon-home"></i>
+                                <span>
+                                        <a title="Homepage" href="/">Home</a>
+                                    </span>
+                                <div class="prt-sep"> - </div>
+                                <span>Testimonials</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section>
-        <div class="container pb-90">
-            <div class="row">
-                @foreach($testimonials as $testimonial)
-                    <div class="col-lg-6 col-md-12 col-sm-12">
-                        <!-- Testimonial Block -->
-                        <div class="testimonial-block-two mb-md-30">
-                            <div class="inner-box">
-                                <div class="image-box">
-                                    <figure class="image"><img src="{{asset('/images/testimonial/'.@$testimonial->image)}}" alt=""></figure>
-                                </div>
-                                <div class="content-box">
-                                    <div class="text">
-                                        {{ucfirst($testimonial->description)}}
+    <div class="site-main">
+
+        <!-- team-section -->
+        <section class="prt-row home02-team-section clearfix">
+            <div class="container">
+                <div class="row">
+                    @foreach($testimonials as $testimonial)
+                        <div class="col-lg-6 col-md-6 col-sm-6 d-flex align-items-stretch">
+                            <div class="testimonials style2 bg-grey">
+                                <div class="testimonial-wrapper">
+                                    <div class="testimonial-info">
+                                        <div class="testimonial-avatar">
+                                            <div class="testimonial-img">
+                                                <img class="img-fluid lazy" data-src="{{asset('/images/testimonial/'.@$testimonial->image)}}"  alt="" width="72" height="72">
+                                            </div>
+                                        </div>
+                                        <div class="testimonial-caption">
+                                            <h3>{{ucfirst($testimonial->name)}}</h3>
+                                            <label>{{ucfirst($testimonial->position)}}</label>
+                                        </div>
                                     </div>
-                                    <div class="info-box">
-                                        <h5 class="name">{{ucfirst($testimonial->name)}}</h5>
-                                        <span class="designation">{{ucfirst($testimonial->position)}}</span>
-                                        <span class="icon icon-quote-2"></span>
+                                    <div class="testimonial-content">
+                                        <blockquote class="testimonial-text">
+                                            {{ucfirst($testimonial->description)}}
+                                        </blockquote>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    @endforeach
+                    <div class="pagination-block">
+                        {{ $testimonials->links('vendor.pagination.default') }}
                     </div>
-                @endforeach
-                <div class="service-block col-lg-12 col-md-12 col-sm-12 wow fadeInUp" data-wow-delay="300ms">
-                    {{ $testimonials->links('vendor.pagination.simple-bootstrap-4') }}
                 </div>
             </div>
-        </div>
-    </section>
-
+        </section>
+        <!-- team-section-end -->
+    </div>
 @endsection
 @section('js')
 @endsection

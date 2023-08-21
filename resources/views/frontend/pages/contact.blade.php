@@ -4,104 +4,153 @@
 @endsection
 @section('content')
 
-    <section class="page-title" style="background-image: url({{ asset('assets/frontend/images/background/page-title.jpg') }});">
-        <div class="auto-container">
-            <div class="title-outer">
-                <h1 class="title">Contact Us</h1>
-                <ul class="page-breadcrumb">
-                    <li><a href="/">Home</a></li>
-                    <li>Contact</li>
-                </ul>
+
+    <div class="prt-titlebar-wrapper prt-bg">
+        <div class="prt-titlebar-wrapper-bg-layer prt-bg-layer"></div>
+        <div class="prt-titlebar-wrapper-inner">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-12">
+                        <div class="prt-page-title-row-heading">
+                            <div class="page-title-heading">
+                                <h2 class="title">Contact Us</h2>
+                            </div>
+                            <div class="breadcrumb-wrapper">
+                                <i class="flaticon-home"></i>
+                                <span>
+                                        <a title="Homepage" href="/">Home</a>
+                                    </span>
+                                <div class="prt-sep"> - </div>
+                                <span>Contact</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <section class="contact-details">
-        <div class="container ">
-            <div class="row">
-                <div class="col-xl-7 col-lg-6">
-                    <div class="sec-title">
-                        <span class="sub-title">Send us email</span>
-                        <h2>Feel free to message us</h2>
+    <div class="site-main">
+
+        <!-- contact-form-section -->
+        <section class="prt-row padding_bottom_zero-section contact-us-contact-form-section clearfix">
+            <div class="container">
+                <div class="row g-0">
+                    <div class="col-lg-6">
+                        <div class="col-bg-img-thirty-seven prt-bg prt-col-bgimage-yes col-bg-img-six">
+                            <div class="prt-col-wrapper-bg-layer prt-bg-layer"></div>
+                            <div class="layer-content"></div>
+                        </div>
+                        <img class="img-fluid prt-equal-height-image" src="{{ asset('assets/frontend/images/bg-image/col-bgimage-37.png') }}" alt="col-bgimage-37">
                     </div>
-                    <!-- Contact Form -->
-                    <form id="contact_form" name="contact_form" class="" action="{{route('contact.store')}}" method="post">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <input name="name" class="form-control" type="text" placeholder="Enter Name" required>
+                    <div class="col-lg-6">
+                        <div class="bg-base-grey spacing-25">
+                            <!-- section title -->
+                            <div class="section-title style7">
+                                <div class="title-header">
+                                    <h2 class="title">Have any question? <br>feel free to <span>Contact</span></h2>
                                 </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <input name="email" class="form-control required email" type="email" placeholder="Enter Email">
+                            </div><!-- section title end -->
+                            <form action="{{route('contact.store')}}" class="contact_form clearfix" method="post">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input name="name" type="text" value="" placeholder="Your Full Name" required="required">
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <input name="email" type="text" value="" placeholder="Email Address" required="required">
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <input name="phone" type="text" value="" placeholder="Phone" />
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input name="subject" type="text" value="" placeholder="Subject" />
+                                    </div>
+{{--                                    <div class="col-md-12">--}}
+{{--                                        <div class="select"><select id="selectbox" class="select-hidden">--}}
+{{--                                                <option value="hide">Services</option>--}}
+{{--                                                <option value="Babies">WordPress security</option>--}}
+{{--                                                <option value="Nannies">software integration</option>--}}
+{{--                                                <option value="Babies and nannies duo">Other</option>--}}
+{{--                                            </select><div class="select-styled">Services</div><ul class="select-options"><li rel="hide">Services</li><li rel="Babies">WordPress security</li><li rel="Nannies">software integration</li><li rel="Babies and nannies duo">Other</li></ul></div>--}}
+{{--                                    </div>--}}
+                                    <div class="col-md-12">
+                                        <textarea name="message" rows="4" placeholder="Your Message" required="required"></textarea>
+                                    </div>
+                                    <div class="mt-5">
+                                        <button class="submit prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor" type="submit" value="submit">Submit Here</button>
+                                    </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <input name="subject" class="form-control required" type="text" placeholder="Enter Subject">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="mb-3">
-                                    <input name="phone" class="form-control" type="text" placeholder="Enter Phone" required>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <textarea name="form_message" class="form-control required" rows="7" placeholder="Enter Message"></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <input name="form_botcheck" class="form-control" type="hidden" value="" />
-                            <button type="submit" class="theme-btn btn-style-one" data-loading-text="Please wait..."><span class="btn-title">Send message</span></button>
-                            <button type="reset" class="theme-btn btn-style-one bg-theme-color5"><span class="btn-title">Reset</span></button>
-                        </div>
-                    </form>
-                    <!-- Contact Form Validation-->
+                    </div>
                 </div>
-                <div class="col-xl-5 col-lg-6">
-                    <div class="contact-details__right">
-                        <div class="sec-title">
-                            <span class="sub-title">Need any help?</span>
-                            <h2>Get in touch with us</h2>
-                            <div class="text">We are available to respond for any of your query or question. Help is just one click away.</div>
+            </div>
+        </section>
+        <!-- contact-form-section-end -->
+
+        <!-- contact-us-iconbox-section -->
+        <section class="prt-row contact-us-iconbox-section clearfix">
+            <div class="container">
+                <div class="row g-0 prt-vertical_sep">
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="featured-icon-box icon-align-top-content style19">
+                            <div class="featured-icon">
+                                <div class="prt-icon">
+                                    <i class="flaticon-phone-call"></i>
+                                </div>
+                            </div>
+                            <div class="featured-content">
+                                <div class="featured-title">
+                                    <h3>call us on</h3>
+                                </div>
+                                <div class="featured-desc">
+                                    <a href="tel:{{@$setting_data->phone ?? $setting_data->mobile  ?? ''}}">{{@$setting_data->phone ?? $setting_data->mobile  ?? ''}}</a>
+                                </div>
+                            </div>
                         </div>
-                        <ul class="list-unstyled contact-details__info">
-                            <li>
-                                <div class="icon bg-theme-color2">
-                                    <span class="lnr-icon-phone-plus"></span>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="featured-icon-box icon-align-top-content style19">
+                            <div class="featured-icon">
+                                <div class="prt-icon">
+                                    <i class="flaticon-email"></i>
                                 </div>
-                                <div class="text">
-                                    <h6>Have any question?</h6>
-                                    <a href="tel:{{@$setting_data->phone ?? $setting_data->mobile  ?? ''}}"><span>Call</span>   {{@$setting_data->phone ?? $setting_data->mobile  ?? ''}}</a>
+                            </div>
+                            <div class="featured-content">
+                                <div class="featured-title">
+                                    <h3>Email</h3>
                                 </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <span class="lnr-icon-envelope1"></span>
-                                </div>
-                                <div class="text">
-                                    <h6>Write email</h6>
+                                <div class="featured-desc">
                                     <a href="mailto:{{@$setting_data->email ?? ''}}">{{@$setting_data->email ?? ''}}</a>
                                 </div>
-                            </li>
-                            <li>
-                                <div class="icon">
-                                    <span class="lnr-icon-location"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="featured-icon-box icon-align-top-content style19">
+                            <div class="featured-icon">
+                                <div class="prt-icon">
+                                    <i class="flaticon-location"></i>
                                 </div>
-                                <div class="text">
-                                    <h6>Our Office</h6>
+                            </div>
+                            <div class="featured-content">
+                                <div class="featured-title">
+                                    <h3>Address</h3>
+                                </div>
+                                <div class="featured-desc">
                                     <span>{{@$setting_data->address ?? ''}}</span>
                                 </div>
-                            </li>
-                        </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+        <!-- contact-us-iconbox-section-end -->
+
+    </div>
 
     @if(@$setting_data->google_map)
         <section>
