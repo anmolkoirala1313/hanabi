@@ -43,10 +43,10 @@
             </div>
         </div>
     </div>
+    <div class="site-main">
 
     @foreach($sections as $key=>$value)
 
-        <div class="site-main">
 
             @if($value == "basic_section")
                 <section class="prt-row about01-about-section clearfix">
@@ -60,12 +60,12 @@
                             <div class="col-lg-7 align-self-center">
                                 <div class="pl-50 res-1199-pr-15 res-1199-pl-30 res-991-pl-15 res-991-mt-30">
                                     <!-- section title -->
-                                    <?php $split = explode(" ", @$slider->heading);?>
+                                    <?php $split = explode(" ", @$basic_elements->heading);?>
 
                                     <div class="section-title mb-15">
                                         <div class="title-header">
                                             <h3>Why Choose Us</h3>
-                                            <h2 class="title">{{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$slider->heading)}}<span class="text-base-skin"> {{$split[count($split)-1]}}</span></h2>
+                                            <h2 class="title">{{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$basic_elements->heading)}}<span class="text-base-skin"> {{$split[count($split)-1]}}</span></h2>
                                         </div>
                                         <div class="title-desc text-justify">
                                             {!! @$basic_elements->description !!}
@@ -88,18 +88,17 @@
             @endif
 
             @if($value == "call_to_action_1")
-                <section class="call-to-action-two pull-up" style="background-image: url( http://localhost:8000/assets/frontend/images/cta/01.jpeg)">
-                    <div class="auto-container">
+                <section class="prt-row about02-timeline-section prt-bg prt-bgimage-yes bg-img3 bg-base-dark clearfix">
+                    <div class="prt-row-wrapper-bg-layer prt-bg-layer"></div>
+                    <div class="container">
                         <div class="row">
-                            <div class="col-lg-8">
-                                <div class="title-box">
-                                    <h2 class="title">{{ $call1_elements->heading }}</h2>
-                                </div>
-                            </div>
-                            <div class="col-lg-4">
-                                <div class="video-box">
-                                    <div class="inner">
-                                        <a href="{{@$call1_elements->button_link ?? '/contact-us'}}" class="theme-btn btn-style-one light"><span class="btn-title"> {{ucwords(@$call1_elements->button ?? 'Get Started')}}</span></a>
+                            <div class="col-lg-12">
+                                <div class="section-title title-style-center_text style5" style="margin-bottom: 0px">
+                                    <div class="title-header">
+                                        <?php $split = explode(" ", @$call1_elements->heading);?>
+                                        <h2 class="title" style="font-size: 36px;">{{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$call1_elements->heading)}} <span> {{$split[count($split)-1]}}</span></h2>
+                                        <a class="prt-btn mt-3 prt-btn-size-sm prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor"
+                                           href="{{@$call1_elements->button_link ?? '/contact-us'}}">{{ucwords(@$call1_elements->button ?? 'Get Started')}}</a>
                                     </div>
                                 </div>
                             </div>
@@ -109,104 +108,151 @@
             @endif
 
             @if($value == "call_to_action_2")
-                <div class="call-to-action">
-                    <div class="auto-container">
-                        <div class="inner-container" style="padding: 40px 0;">
-                            <h5 class="title">{{ @$call2_elements->heading ?? '' }}</h5>
-                            <a href="{{@$call2_elements->button_link ?? '/contact-us'}}" class="info-btn">{{ucwords(@$call2_elements->button ?? 'Reach Out')}}</a>
-                        </div>
-                    </div>
-                </div>
-            @endif
-            @if($value == "background_image_section")
-                <section class="why-choose-us-three" style="padding: 120px 0 0;">
-                    <div class="anim-icons">
-                        <span class="icon icon-object-1"></span>
-                    </div>
-                    <div class="auto-container">
-                        <div class="row">
-                            <!-- Content Column -->
-                            <div class="content-column col-lg-7 col-md-12">
-                                <div class="inner-column wow fadeInRight animated" style="visibility: visible; animation-name: fadeInRight;">
-                                    <div class="sec-title">
-                                        <i class="sub-title">{{@$bgimage_elements->subheading ?? ''}}</i>
-                                        <h2> {{@$bgimage_elements->heading ?? ''}}</h2>
-                                        <div class="text text-justify">
-                                            {{ @$bgimage_elements->description }}
+                    <section class="prt-row padding_zero-section service01-consulting-section bg-layer-equal-height clearfix">
+                        <div class="container">
+                            <div class="row g-0">
+                                <div class="col-lg-8">
+                                    <div class="prt-bg prt-col-bgcolor-yes prt-left-span bg-base-dark spacing-16 z-index-2">
+                                        <div class="prt-col-wrapper-bg-layer prt-bg-layer"></div>
+                                        <div class="layer-content">
+                                            <!--section-title -->
+                                            <div class="section-title style2" style="margin-bottom: 0px;">
+                                                <div class="title-header">
+                                                    <?php $split = explode(" ", @$call2_elements->heading);?>
+                                                    <h2 class="title" style="font-size: 30px;line-height: 40px;">{{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$call2_elements->heading)}} <span> {{$split[count($split)-1]}}</span></h2>
+                                                </div>
+                                            </div><!--section-title-end -->
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-3">
+                                    <div class="col-bg-img-twenty prt-bg prt-col-bgimage-yes prt-right-span">
+                                        <div class="prt-col-wrapper-bg-layer prt-bg-layer" style="background-image: url({{ asset('assets/frontend/images/bg-image/col-bgimage-11.jpg') }});"></div>
+                                        <div class="layer-content">
+                                            <div class="row g-0 h-100">
+                                                <div class="col-lg-8">
+                                                    <div class="bg-base-light-skin h-100">
+                                                        <div class="spacing-27 h-100 d-flex flex-column justify-content-between">
+                                                            <!--section-title-end -->
+                                                            <div class="">
+                                                                <a class="prt-btn prt-btn-size-sm prt-btn-shape-round mt-55 prt-btn-style-fill prt-btn-color-dark" href="{{@$call2_elements->button_link ?? '/contact-us'}}">
+                                                                    {{ucwords(@$call2_elements->button ?? 'Reach Out')}}</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- Image Column -->
-                            <div class="image-column col-lg-5 col-md-12 col-sm-12">
-                                <div class="inner-column">
-                                    <div class="image-box">
-                                        <figure class="bg-image"><img src="{{asset('assets/frontend/images/resource/image-6.jpg')}}" alt=""></figure>
-                                        <figure class="image"><img src="{{asset('/images/section_elements/bgimage_section/'.@$bgimage_elements->image)}}" alt=""></figure>
+                        </div>
+                    </section>
+            @endif
+            @if($value == "background_image_section")
+                    <section class="prt-row padding_top_zero-section home02-about-us-section clearfix">
+                        <div class="container">
+                            <div class="row g-0">
+                                <div class="col-lg-6">
+                                    <div class="prt-col-bgimage-yes prt-bg col-bg-img-four prt-left-span mr_60 res-991-mr-0">
+                                        <div class="prt-col-wrapper-bg-layer prt-bg-layer" style="background: url({{asset('/images/section_elements/bgimage_section/'.@$bgimage_elements->image)}})"></div>
+                                    </div>
+                                    <img class="img-fluid prt-equal-height-image" src="{{asset('/images/section_elements/bgimage_section/'.@$bgimage_elements->image)}}" alt="col-bgimage-4">
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="prt-bg prt-col-bgcolor-yes bg-base-grey prt-bg prt-right-span spacing-4 z-index-2">
+                                        <div class="prt-col-wrapper-bg-layer prt-bg-layer">
+                                            <div class="prt-col-wrapper-bg-layer-inner"></div>
+                                        </div>
+                                        <div class="layer-content">
+                                            <!-- section title -->
+                                            <div class="section-title style4">
+                                                <div class="title-header">
+                                                    <?php $split = explode(" ", @$call1_elements->heading);?>
+                                                    <h3>{{@$bgimage_elements->subheading ?? ''}}</h3>
+                                                    <h2 class="title">{{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$call1_elements->heading)}} <span>{{$split[count($split)-1]}}</span></h2>
+                                                </div>
+                                                <div class="title-desc">
+                                                    <p>
+                                                        {{ @$bgimage_elements->description }}
+                                                    </p>
+                                                </div>
+                                            </div><!-- section title end -->
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </section>
+                    </section>
             @endif
 
             @if($value == "flash_cards")
-                <div class="rs-services style1 modify shape-bg pt-128 md-pt-70 pb-80 md-pb-80">
-                    <div class="container">
-                        <div class="sec-title4 text-center mb-60">
-                            <div class="sub-title mb-2">{{$flash_elements[0]->subheading ?? ''}}</div>
-                            <h2 class="title primary-color">{{@$flash_elements[0]->heading ?? ''}}</h2>
-                        </div>
-                        <div class="row service-wrap mr-0 ml-0">
-                            @foreach(@$flash_elements as $index=>$flash_element)
-                                <div class="col-lg-4 padding-0 {{ $loop->first ? 'pr-1':'' }}">
-                                    <div class="service-grid">
-                                        <div class="service-icon mb-23">
-                                            <img src="{{ asset('assets/frontend/images/services/'.get_icons($index)) }}" alt="">
-                                        </div>
-                                        <h4 class="title mb-18">
-                                            <a>
-                                                {{ucwords(@$flash_element->list_header)}}
-                                            </a>
-                                        </h4>
-                                        <div class="desc mb-12">
-                                            {{ucfirst(@$flash_element->list_description) }}
+                    <section class="prt-row services01-second-section clearfix">
+                        <div class="container">
+                            <div class="section-title title-style-center_text">
+                                <div class="title-header">
+                                    <?php $split = explode(" ", @$flash_elements[0]->heading);?>
+
+                                    <h3>{{$flash_elements[0]->subheading ?? ''}}</h3>
+                                    <h2 class="title">{{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$call1_elements->heading)}}
+                                        <span>{{$split[count($split)-1]}}</span></h2>
+                                </div>
+                            </div>
+                            <div class="row g-0 row-equal-height prt-vertical_sep style2">
+                                @foreach(@$flash_elements as $index=>$flash_element)
+                                    <div class="col-lg-4 col-md-4 col-sm-8 col-12">
+                                        <div class="featured-icon-box style10 bg-base-dark res-575-pt-40">
+                                            <div class="featured-icon">
+                                                <div class="prt-icon prt-icon_element-size-md">
+                                                    <i class="{{get_icons($index)}}"></i>
+                                                </div>
+                                            </div>
+                                            <div class="featured-content">
+                                                <div class="featured-title">
+                                                    <h3> {{ucwords(@$flash_element->list_header)}}</h3>
+                                                </div>
+                                                <div class="featured-desc">
+                                                    <p>  {{ucfirst(@$flash_element->list_description) }}</p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            @endforeach
+                                @endforeach
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </section>
             @endif
 
             @if($value == "simple_header_and_description")
+                    <div class="sidebar prt-sidebar-left prt-blog bg-base-grey clearfix">
+                        <div class="container">
+                            <!-- row -->
+                            <div class="row g-0">
 
-                <section class="blog-details">
-                    <div class="container" style="padding-top:0">
-                        <div class="row">
-                            <div class="col-xl-12 col-lg-12">
-                                @if(@$header_descp_elements->heading!==null)
-                                    <div class="sec-title text-center">
-                                        <span class="sub-title">  {{@$header_descp_elements->subheading ?? ''}}</span>
-                                        <h2>  <?php
-                                            $split = explode(" ", @$header_descp_elements->heading);?> {{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$header_descp_elements->heading)."\n"}} <br> {{$split[count($split)-1]}}</h2>
-                                    </div>
-                                @endif
-                                <div class="blog-details__left">
-                                    <div class="blog-details__content">
-                                        <div class="blog-details__text-2 custom-description">
-                                            {!! @$header_descp_elements->description !!}
+                                <div class="col-lg-12 content-area prt-blog-single" style="padding: 5px 0px 80px 0px;">
+                                    @if(@$header_descp_elements->heading!==null)
+                                        <div class="section-title title-style-center_text pt-40">
+                                            <div class="title-header">
+                                                <h3>{{@$header_descp_elements->subheading ?? ''}}</h3>
+                                                <h2 class="title"> {{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$header_descp_elements->heading)."\n"}} <span>{{$split[count($split)-1]}}</span></h2>
+                                            </div>
+                                        </div>
+                                    @endif
+                                    <div class="prt-blog-single-content">
+                                        <div class="entry-content">
+                                            <div class="prt-box-desc-text custom-description">
+                                                {!! @$header_descp_elements->description !!}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
+                            </div><!-- row end -->
                         </div>
                     </div>
-                </section>
-            @endif
+                @endif
 
             @if($value == "map_and_description")
                 <div class="rs-contact contact-style2 bg11 pt-95 pb-100 md-pt-65 md-pb-70">
@@ -354,9 +400,10 @@
                 @endif
             @endif
 
-        </div>
 
-    @endforeach
+        @endforeach
+
+    </div>
 
 
 @endsection

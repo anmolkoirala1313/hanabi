@@ -241,7 +241,7 @@ class PageController extends Controller
             } elseif ($section->section_slug == 'background_image_section') {
                 $ordered_sections[$section->section_slug] = 'background_image_section.png';
             } elseif ($section->section_slug == 'call_to_action_2') {
-                $ordered_sections[$section->section_slug] = 'calltoaction2.png';
+                $ordered_sections[$section->section_slug] = 'call_to_action_2.png';
             } elseif ($section->section_slug == 'call_to_action_1') {
                 $ordered_sections[$section->section_slug] = 'calltoaction.png';
             } elseif ($section->section_slug == 'recruitment_process') {

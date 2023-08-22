@@ -5295,3 +5295,11 @@ form.contact_form select:focus {
     background-color: var(--base-skin);
     color: var(--base-white);
 }
+
+.prt-portfolio-box-view-overlay{
+    height: 100%;
+    width: 100%;
+    background-color: #1d2f41;
+    opacity: 0.6;
+    content: "";
+}
