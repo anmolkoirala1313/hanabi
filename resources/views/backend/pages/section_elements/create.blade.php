@@ -917,7 +917,7 @@
                                                  <h4 class="card-title mb-0">
                                                      Add image to gallery section
                                                  </h4>
-                                                 <p class="text-danger">Note* Please add the images in the multiplication of 4 (like 4, 8, 12) for perfect design  </p>
+                                                 <p class="text-danger">Note* Please add the images in the multiplication of 4 (like 3, 6, 9) for perfect design  </p>
                                              </div>
                                              <div class="card-body">
                                                  <h2 class="page-heading">Upload your Images <span id="counter"></span></h2>

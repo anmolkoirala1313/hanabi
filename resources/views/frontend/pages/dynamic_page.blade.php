@@ -2,18 +2,13 @@
 @section('title') {{ucwords(@$page_detail->name)}} @endsection
 @section('css')
     <style>
-
-        .img-wrapper {
-            height: 270px;
-            object-fit: cover;
-        }
-        #gallery img.img-responsive {
-            width: 100%;
-            height: 100%;
+        .card-image .img-wrapper {
+            height: 345px; /* Set your preferred maximum height */
             object-fit: cover;
         }
     </style>
     <link rel="stylesheet" href="{{asset('assets/common/lightbox.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
 
 @endsection
 @section('content')
@@ -255,39 +250,33 @@
                 @endif
 
             @if($value == "map_and_description")
-                <div class="rs-contact contact-style2 bg11 pt-95 pb-100 md-pt-65 md-pb-70">
-                    <div class="container">
-                        <div class="row y-middle">
-                            <div class="col-lg-6">
-                                <div class="sec-title2 mb-45 md-mb-30">
-                                    <div class="sub-text">{{@$map_descp->subheading ?? ''}}</div>
-                                    <h2 class="title mb-23">
-                                        <?php
-                                        $split = explode(" ", @$map_descp->heading);?> {{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$map_descp->heading)."\n"}}
-                                        <span> {{$split[count($split)-1]}} </span>
-                                    </h2>
-                                    <div class="desc mb-0 text-justify">
-                                        {!! @$map_descp->description !!}
+                    <section class="prt-row about02-welcome-section clearfix">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-12">
+                                    <div class="res-1199-mb-30">
+                                        <!--section-title -->
+                                        <div class="section-title">
+                                            <div class="title-header">
+                                                <h3>{{@$map_descp->subheading ?? ''}}</h3>
+                                                <?php $split = explode(" ", @$map_descp->heading);?>
+                                                <span> {{$split[count($split)-1]}} </span>
+                                                <h2 class="title">{{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$map_descp->heading)}}<br><span>{{$split[count($split)-1]}}  </span></h2>
+                                            </div>
+                                            <div class="title-desc text-justify custom-description">
+                                                 {!! @$map_descp->description !!}
+                                            </div>
+                                        </div><!--section-title-end -->
                                     </div>
-                                    @if(@$map_descp->button_link)
-                                        <div class="btn-part mt-3">
-                                            <a class="readon consultant discover" href="{{@$map_descp->button_link}}">
-                                                {{ucwords(@$map_descp->button ?? 'Contact us')}}
-                                            </a>
-                                        </div>
-                                    @endif
                                 </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="contact-map">
+                                <div class="col-xl-6 col-lg-12">
                                     <iframe src="{{@$setting_data->google_map ?? ''}}"
-                                            width="600" height="400" style="border:0;"
+                                            width="600" height="650" style="border:0;"
                                             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </section>
             @endif
 
             @if($value == "small_box_description")
@@ -322,82 +311,103 @@
             @endif
 
             @if($value == "gallery_section")
-                <div class="rs-project style3 pt-100 pb-100 md-pt-70 md-pb-70">
-                    <div class="container">
-                        @if(@$heading!==null)
-                            <div class="sec-title3 text-center mb-25 md-mb-45">
-                                <span class="sub-title">  {{@$subheading ?? ''}}</span>
-                                <h2 class="title pb-15">
-                                    {{@$heading}}
-                                </h2>
-                                <div class="heading-border-line"></div>
-                            </div>
-                        @endif
-                        <div class="row">
-                            @if(count(@$gallery_elements) > 0)
-                                <div id="gallery" style="padding: 0px 30px 0 30px;">
-                                    <div id="image-gallery">
-                                        <div class="row">
-                                            @foreach($gallery_elements as $gallery)
-                                                <div class="col-lg-3 col-md-6 col-sm-6 col-xs-12 image">
-                                                    <div class="{{  $page_detail->slug =='legal-document' || $page_detail->slug =='legal-documents' ? "":"img-wrapper"   }}">
-                                                        <a href="{{asset('/images/section_elements/gallery/'.@$gallery->filename)}}">
-                                                            <img data-src="{{asset('/images/section_elements/gallery/'.@$gallery->filename)}}" class="img-responsive lazy"></a>
-                                                        <div class="img-overlay">
-                                                            <i class="fa fa-plus-circle" aria-hidden="true"></i>
-                                                        </div>
+                    <section class="prt-row service01-services-section bg-base-grey clearfix" style="    padding: 70px 0 70px;">
+                        <div class="container">
+                            @if(@$heading!==null)
+                                <div class="section-title title-style-center_text">
+                                    <div class="title-header">
+                                        <h3> {{@$subheading ?? ''}}</h3>
+                                        <?php $split = explode(" ", @$heading);?>
+                                        <span> </span>
+                                        <h2 class="title">{{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$heading)."\n"}}
+                                            <span>{{$split[count($split)-1]}} </span></h2>
+                                    </div>
+                                </div>
+                            @endif
+                            <div class="row">
+                                @if(count(@$gallery_elements) > 0)
+                                    @foreach($gallery_elements as $gallery)
+                                        <div class="col-lg-4 col-md-6 col-sm-6">
+                                            <!-- featured-imagebox -->
+                                            <div class="featured-imagebox featured-imagebox-portfolio style1">
+                                                <div class="card" style="border: none">
+                                                    <div class="card-image gallery-item" style="background: #F0F5FB">
+                                                        <a href="{{asset('/images/section_elements/gallery/'.@$gallery->filename)}}" data-fancybox="gallery">
+                                                            <img src="{{asset('/images/section_elements/gallery/'.@$gallery->filename)}}" class="{{  $page_detail->slug =='legal-document' || $page_detail->slug =='legal-documents' ? "":"img-wrapper"   }}" alt="Image Gallery">
+                                                        </a>
                                                     </div>
                                                 </div>
-                                            @endforeach
-                                        </div><!-- End row -->
-                                    </div><!-- End image gallery -->
-                                </div><!-- End container -->
-                            @endif
+                                            </div><!-- featured-imagebox end-->
+                                        </div>
+
+                                    @endforeach
+                                @endif
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    </section>
             @endif
 
             @if($value == "slider_list")
                 @if(count($slider_list_elements)>0))
-
-                <div id="rs-services" class="rs-services style2 gray-bg pt-100 pb-100 md-pt-70 md-pb-70">
-                    <div class="container">
-                        <div class="sec-title2 d-flex align-items-center mb-60 md-mb-40">
-                            <div class="first-half">
-                                <div class="sub-text">{{ucwords(@$slider_list_elements[0]->description)}}</div>
-                                <h2 class="title mb-0 md-pb-20">
-                                    <?php
-                                    $split = explode(" ", @$slider_list_elements[0]->heading);?> {{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$slider_list_elements[0]->heading)."\n"}}
-                                    <span> {{$split[count($split)-1]}} </span>
-                                </h2>
+                    <section class="prt-row home01-services-section bg-img1 bg-base-grey prt-bg prt-bgimage-yes clearfix">
+                        <div class="prt-row-wrapper-bg-layer prt-bg-layer"></div>
+                        <div class="container" data-aos="fade-up">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-10 m-auto">
+                                    <!--section-title-->
+                                    <div class="section-title title-style-center_text">
+                                        <div class="title-header">
+                                            <h3>{{ucwords(@$slider_list_elements[0]->description)}}</h3>
+                                            <?php
+                                            $split = explode(" ", @$slider_list_elements[0]->heading);?>
+                                            <h2 class="title">{{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$slider_list_elements[0]->heading)}} <span>{{$split[count($split)-1]}}</span></h2>
+                                        </div>
+                                    </div><!--section-title end-->
+                                </div>
+                            </div>
+                            <div class="row slick_slider" data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "arrows":false, "dots":false, "autoplay":true, "infinite":true, "responsive": [{"breakpoint":1024,"settings":{"slidesToShow": 2}} , {"breakpoint":991,"settings":{"slidesToShow": 2}}, {"breakpoint":575,"settings":{"slidesToShow": 1}}]}'>
+                                @for ($i = 1; $i <=@$list_3; $i++)
+                                    <div class="col-lg-6">
+                                        <!-- featured-imagebox-post -->
+                                        <div class="featured-imagebox featured-imagebox-services style1">
+                                            <!-- featured-thumbnail -->
+                                            <div class="featured-thumbnail">
+                                                <img class="img-fluid" src="{{ asset('/images/section_elements/list_1/thumb/thumb_'.$slider_list_elements[$i-1]->list_image) }}" alt="blog_img">
+                                            </div><!-- featured-thumbnail end-->
+                                            <div class="featured-details-wrap">
+                                                <div class="featured-content">
+                                                    <div class="featured-title">
+                                                        <h3><a href="{{route('slider.single',@$slider_list_elements[$i-1]->subheading)}}" tabindex="0">
+                                                                {{ucwords(@$slider_list_elements[$i-1]->list_header)}}
+                                                            </a></h3>
+                                                    </div>
+                                                </div>
+                                                <div class="featured-explore-more">
+                                                    <a href="{{route('slider.single',@$slider_list_elements[$i-1]->subheading)}}">Explore more</a>
+                                                </div>
+                                            </div>
+                                            <div class="services-details-wrap">
+                                                <div class="services-details-box">
+                                                    <div class="services-content">
+                                                        <div class="services-title">
+                                                            <h3><a href="{{route('slider.single',@$slider_list_elements[$i-1]->subheading)}}" tabindex="0"> {{ucwords(@$slider_list_elements[$i-1]->list_header)}}</a></h3>
+                                                        </div>
+                                                        <div class="services-desc">
+                                                            <p>{{ elipsis( strip_tags(@$slider_list_elements[$i-1]->list_description) )}}</p>
+                                                        </div>
+                                                    </div>
+                                                    <div class="services-explore-more">
+                                                        <a href="{{route('slider.single',@$slider_list_elements[$i-1]->subheading)}}">Explore more</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div><!-- featured-imagebox-post end -->
+                                    </div>
+                                @endfor
                             </div>
                         </div>
-                        <div class="rs-carousel owl-carousel" data-loop="true" data-items="3" data-margin="30"
-                             data-autoplay="true" data-hoverpause="true" data-autoplay-timeout="5000" data-smart-speed="800"
-                             data-dots="true" data-nav="false" data-nav-speed="false" data-md-device="3"
-                             data-md-device-nav="false" data-md-device-dots="true" data-center-mode="false" data-ipad-device2="2"
-                             data-ipad-device-nav2="false" data-ipad-device-dots2="true" data-ipad-device="2"
-                             data-ipad-device-nav="false" data-ipad-device-dots="true" data-mobile-device="1"
-                             data-mobile-device-nav="false" data-mobile-device-dots="true">
-                            @for ($i = 1; $i <=@$list_3; $i++)
-                                <div class="service-wrap">
-                                    <div class="image-part">
-                                        <img class="lazy" data-src="{{ asset('/images/section_elements/list_1/thumb/thumb_'.$slider_list_elements[$i-1]->list_image) }}" alt="">
-                                    </div>
-                                    <div class="content-part">
-                                        <h3 class="title" style="font-size: 18px;line-height: 26px;font-weight: 600;">
-                                            <a href="{{route('slider.single',@$slider_list_elements[$i-1]->subheading)}}">
-                                                {{ucwords(@$slider_list_elements[$i-1]->list_header)}}
-                                            </a>
-                                        </h3>
-                                    </div>
-                                </div>
-                            @endfor
-                        </div>
-                    </div>
-                </div>
-                @endif
+                    </section>
+                    @endif
             @endif
 
 
@@ -408,13 +418,23 @@
 
 @endsection
 @section('js')
-    <script src="{{asset('assets/common/lightbox.min.js')}}"></script>
-  <script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+    <script>
       $( document ).ready(function() {
           let selector = $('.custom-description').find('table').length;
           if(selector>0){
               $('.custom-description').find('table').addClass('table table-bordered');
           }
+      });
+      $('[data-fancybox="gallery"]').fancybox({
+          buttons: [
+              "slideShow",
+              "zoom",
+              "close"
+          ],
+          loop: true,
+          protect: true
       });
   </script>
 @endsection

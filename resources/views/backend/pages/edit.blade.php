@@ -265,86 +265,86 @@
                                 </div>
                             </div>
 
-{{--                            <div class="card shadow-none">--}}
-{{--                                <div class="card-header">--}}
-{{--                                    <h5 class="card-title text-primary mb-0">Map and Description</h5>--}}
-{{--                                </div>--}}
-{{--                                <div class="card-body">--}}
-{{--                                    <div class="row">--}}
-{{--                                        <div class="col-md-12">--}}
-{{--                                            <label class="image-checkbox {{(in_array('map_and_description', $sections) ? "image-checkbox-checked":"")}}">--}}
-{{--                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/map_and_description.png')}}" />--}}
-{{--                                                <input type="checkbox" name="section[]" id="map_and_description.png" value="map_and_description" {{(in_array('map_and_description', $sections) ? "checked":"")}} />--}}
-{{--                                                <i class="ri ri-check-line hidden"></i>--}}
-{{--                                            </label>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                            <div class="card shadow-none">
+                                <div class="card-header">
+                                    <h5 class="card-title text-primary mb-0">Map and Description</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label class="image-checkbox {{(in_array('map_and_description', $sections) ? "image-checkbox-checked":"")}}">
+                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/map_and_description.png')}}" />
+                                                <input type="checkbox" name="section[]" id="map_and_description.png" value="map_and_description" {{(in_array('map_and_description', $sections) ? "checked":"")}} />
+                                                <i class="ri ri-check-line hidden"></i>
+                                            </label>
+                                        </div>
+                                    </div>
 
-{{--                                </div>--}}
-{{--                            </div>--}}
+                                </div>
+                            </div>
 
-{{--                            <div class="card shadow-none">--}}
-{{--                                <div class="card-header">--}}
-{{--                                    <h5 class="card-title text-primary mb-0">Gallery Section 1 </h5>--}}
-{{--                                </div>--}}
-{{--                                <div class="card-body">--}}
-{{--                                    <div class="row">--}}
-{{--                                        <div class="col-md-12">--}}
-{{--                                            <div class="form-group mb-3">--}}
-{{--                                                <label>Heading </label>--}}
-{{--                                                <input type="text" class="form-control" name="gallery_heading" value="{{@$heading}}" >--}}
-{{--                                                <div class="invalid-feedback">--}}
-{{--                                                    Please enter the heading.--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                            <div class="form-group mb-3">--}}
-{{--                                                <label>Subeading </label>--}}
-{{--                                                <input type="text" class="form-control" name="gallery_subheading" value="{{@$subheading}}">--}}
-{{--                                                <div class="invalid-feedback">--}}
-{{--                                                    Please enter the subheading.--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="col-md-12">--}}
-{{--                                            <label class="image-checkbox {{(in_array('gallery_section', $sections) ? "image-checkbox-checked":"")}}">--}}
-{{--                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/gallery_section.png')}}" width="100%"/>--}}
-{{--                                                <input type="checkbox" name="section[]" value="gallery_section" id="gallery_section.png" {{(in_array('gallery_section', $sections) ? "checked":"")}}  />--}}
-{{--                                                <i class="ri ri-check-line hidden"></i>--}}
-{{--                                            </label>--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                            <div class="card shadow-none">
+                                <div class="card-header">
+                                    <h5 class="card-title text-primary mb-0">Gallery Section 1 </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group mb-3">
+                                                <label>Heading </label>
+                                                <input type="text" class="form-control" name="gallery_heading" value="{{@$heading}}" >
+                                                <div class="invalid-feedback">
+                                                    Please enter the heading.
+                                                </div>
+                                            </div>
+                                            <div class="form-group mb-3">
+                                                <label>Subeading </label>
+                                                <input type="text" class="form-control" name="gallery_subheading" value="{{@$subheading}}">
+                                                <div class="invalid-feedback">
+                                                    Please enter the subheading.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="image-checkbox {{(in_array('gallery_section', $sections) ? "image-checkbox-checked":"")}}">
+                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/gallery_section.png')}}" width="100%"/>
+                                                <input type="checkbox" name="section[]" value="gallery_section" id="gallery_section.png" {{(in_array('gallery_section', $sections) ? "checked":"")}}  />
+                                                <i class="ri ri-check-line hidden"></i>
+                                            </label>
+                                        </div>
+                                    </div>
 
-{{--                                </div>--}}
-{{--                            </div>--}}
-{{--                            <div class="card shadow-none">--}}
-{{--                                <div class="card-header">--}}
-{{--                                    <h5 class="card-title text-primary mb-0">Slider Lists</h5>--}}
-{{--                                </div>--}}
-{{--                                <div class="card-body">--}}
-{{--                                    <div class="row">--}}
-{{--                                        <div class="col-md-12 mb-3">--}}
-{{--                                            <div class="form-group">--}}
-{{--                                                <label>Number of Slider List <span class="text-muted text-danger">* When created, the number of slider list must be 3</span></label>--}}
-{{--                                                <input type="number"  class="form-control" name="list_number_3" id="list_number_3" value="{{$list3}}">--}}
-{{--                                                <input type="hidden" name="list_3_id" value="{{$list3_id}}">--}}
-{{--                                                <div class="invalid-feedback">--}}
-{{--                                                    Please enter the list number.--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="col-md-12">--}}
-{{--                                            <label class="image-checkbox {{(in_array('slider_list', $sections) ? "image-checkbox-checked":"")}}">--}}
-{{--                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/list_option_1.png')}}" width="100%"/>--}}
-{{--                                                <input type="checkbox" name="section[]" id="list_option_1.png" value="slider_list" {{(in_array('slider_list', $sections) ? "checked":"")}} />--}}
-{{--                                                <i class="ri ri-check-line hidden"></i>--}}
-{{--                                            </label>--}}
-{{--                                            <span class="ctm-text-sm text-warning">* using this element will create a inner page to display individual list data. Use only when big informations are needed to be showcased</span>--}}
+                                </div>
+                            </div>
+                            <div class="card shadow-none">
+                                <div class="card-header">
+                                    <h5 class="card-title text-primary mb-0">Slider Lists</h5>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-12 mb-3">
+                                            <div class="form-group">
+                                                <label>Number of Slider List <span class="text-muted text-danger">* When created, the number of slider list must be 3</span></label>
+                                                <input type="number"  class="form-control" name="list_number_3" id="list_number_3" value="{{$list3}}">
+                                                <input type="hidden" name="list_3_id" value="{{$list3_id}}">
+                                                <div class="invalid-feedback">
+                                                    Please enter the list number.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <label class="image-checkbox {{(in_array('slider_list', $sections) ? "image-checkbox-checked":"")}}">
+                                                <img class="img-responsive" src="{{asset('assets/backend/img/page_sections/list_option_1.png')}}" width="100%"/>
+                                                <input type="checkbox" name="section[]" id="list_option_1.png" value="slider_list" {{(in_array('slider_list', $sections) ? "checked":"")}} />
+                                                <i class="ri ri-check-line hidden"></i>
+                                            </label>
+                                            <span class="ctm-text-sm text-warning">* using this element will create a inner page to display individual list data. Use only when big informations are needed to be showcased</span>
 
-{{--                                        </div>--}}
-{{--                                    </div>--}}
+                                        </div>
+                                    </div>
 
-{{--                                </div>--}}
-{{--                            </div>--}}
+                                </div>
+                            </div>
 {{--                            <div class="card shadow-none">--}}
 {{--                                <div class="card-header">--}}
 {{--                                    <h5 class="card-title text-primary mb-0">Box description</h5>--}}
