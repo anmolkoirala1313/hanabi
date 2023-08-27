@@ -58,19 +58,6 @@
                                 style="z-index:9;font-family:'Poppins';"
                             >{{@$slider->subheading ?? ''}}</span>
                             </rs-layer>
-
-                            <rs-layer
-                                id="slider-1-slide-{{ $index+1 }}-layer-3"
-                                data-type="shape"
-                                data-rsp_ch="on"
-                                data-xy="xo:50px,50px,0,0;yo:50px,50px,0,0;"
-                                data-text="w:normal;s:20,20,11,6;l:0,0,14,8;"
-                                data-dim="w:300px,300px,100%,100%;h:180px,180px,100%,100%;"
-                                data-vbility="f,f,t,t"
-                                data-frame_999="o:0;st:w;"
-                                style="z-index:8;background-color:rgba(0,58,102,0.6);"
-                            >
-                            </rs-layer>
                             @if(@$slider->link)
 
                             <a
@@ -87,25 +74,10 @@
                                 data-frame_1="e:power4.inOut;st:1060;sp:500;sR:1060;"
                                 data-frame_999="o:0;st:w;sR:7440;"
                                 data-frame_hover="c:#fff;bgc:#e02454;boc:#e02454;bor:50px,50px,50px,50px;bos:solid;bow:2px,2px,2px,2px;e:default;"
-                                style="z-index:16;font-family:'Poppins';"
+                                style="left: -12px;top: -60px;z-index:16;font-family:'Poppins';"
                             >{{@$slider->button ?? 'Start Exploring'}}
                             </a>
                             @endif
-                            <rs-layer
-                                id="slider-1-slide-{{ $index+1 }}-layer-5"
-                                data-type="shape"
-                                data-rsp_ch="on"
-                                data-xy="xo:24px,24px,-168px,-103px;yo:364px,364px,193px,119px;"
-                                data-text="w:normal;s:20,20,11,6;l:0,0,14,8;"
-                                data-dim="w:10px,10px,5px,3px;h:10px,10px,5px,3px;"
-                                data-vbility="t,t,f,f"
-                                data-border="bor:50px,50px,50px,50px;"
-                                data-frame_0="y:100%;"
-                                data-frame_1="e:power4.inOut;st:580;sR:580;"
-                                data-frame_999="o:0;st:w;sR:8120;"
-                                style="z-index:12;background-color:#e02454;"
-                            >
-                            </rs-layer>
                         </rs-slide>
                         @endforeach
 
