@@ -88,6 +88,7 @@ class FrontController extends Controller
         $success_trails     = SuccessTrail::latest()->get();
         $recuruitment_index = [3,7,11,15];
         $legal_data         = get_legal_documents();
+        $country_course     = Course::whereNotNull('country')->select('courses.country')->get()->groupBy('country');
 
         return view('welcome',compact('director','success_trails','legal_data','today','latestcourses','latesttests','clients','recruitments','testimonials','clients','latestPosts','latestServices','countries','homepage_info','sliders','recuruitment_index'));
     }
