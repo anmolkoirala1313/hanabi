@@ -229,6 +229,13 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
     Route::delete('/clients/{clients}', 'App\Http\Controllers\ClientController@destroy')->name('clients.destroy');
     Route::get('/clients/{clients}/edit', 'App\Http\Controllers\ClientController@edit')->name('clients.edit');
 
+    Route::get('/success-trail', 'App\Http\Controllers\SuccessTrailController@index')->name('success_trail.index');
+    Route::get('/success-trail/create', 'App\Http\Controllers\SuccessTrailController@create')->name('success_trail.create');
+    Route::post('/success-trail', 'App\Http\Controllers\SuccessTrailController@store')->name('success_trail.store');
+    Route::put('/success-trail/{success}', 'App\Http\Controllers\SuccessTrailController@update')->name('success_trail.update');
+    Route::delete('/success-trail/{success}', 'App\Http\Controllers\SuccessTrailController@destroy')->name('success_trail.destroy');
+    Route::get('/success-trail/{success}/edit', 'App\Http\Controllers\SuccessTrailController@edit')->name('success_trail.edit');
+
 
     Route::get('/subsidiaries', 'App\Http\Controllers\SubsidiaryController@index')->name('subsidiary.index');
     Route::get('/subsidiaries/create', 'App\Http\Controllers\SubsidiaryController@create')->name('subsidiary.create');

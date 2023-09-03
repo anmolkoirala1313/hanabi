@@ -96,6 +96,12 @@
                         <i class="ri-file-copy-2-line"></i> <span data-key="t-widgets">Pages</span>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link menu-link @if(\Request::route()->getName() == 'success_trail.index') active @endif" href="{{route('success_trail.index')}}">
+                        <i class="ri-medal-2-line"></i> <span data-key="t-widgets">Success Trail</span>
+                    </a>
+                </li>
 {{--                <li class="nav-item">--}}
 {{--                    <a class="nav-link menu-link @if(\Request::route()->getName() == 'formbuilder::forms.index' || \Request::route()->getName() == 'formbuilder::forms.create' || \Request::route()->getName() == 'formbuilder::forms.edit') active @endif" href="{{route('formbuilder::forms.index')}}">--}}
 {{--                        <i class="ri-pages-line"></i> <span data-key="t-widgets">Forms</span>--}}
@@ -106,11 +112,6 @@
                         <i class="ri-account-circle-line"></i> <span data-key="t-widgets">User Mgmt.</span>
                     </a>
                 </li>
-{{--                <li class="nav-item">--}}
-{{--                    <a class="nav-link menu-link @if(\Request::route()->getName() == 'managing-director.index') active @endif" href="{{route('managing-director.index')}}">--}}
-{{--                        <i class="ri-open-arm-line"></i> <span data-key="t-widgets">Managing Director</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
                 <li class="nav-item">
                     <a class="nav-link menu-link @if(\Request::route()->getName() == 'testimonials.index') active @endif" href="{{route('testimonials.index')}}">
                         <i class="ri-hand-heart-line"></i> <span data-key="t-widgets">Testimonial</span>
