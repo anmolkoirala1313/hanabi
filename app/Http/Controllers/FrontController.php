@@ -19,6 +19,7 @@ use App\Mail\ContactDetail;
 use App\Models\HomePage;
 use App\Models\Slider;
 use App\Models\Subsidiary;
+use App\Models\SuccessTrail;
 use App\Models\Team;
 use App\Models\Testimonial;
 use App\Models\SectionElement;
@@ -84,10 +85,11 @@ class FrontController extends Controller
         $today              = date('Y-m-d');
         $latestcourses      = Course::latest()->take(5)->get();
         $latesttests        = TestPreparation::latest()->take(6)->get();
+        $success_trails     = SuccessTrail::latest()->get();
         $recuruitment_index = [3,7,11,15];
         $legal_data         = get_legal_documents();
 
-        return view('welcome',compact('director','legal_data','today','latestcourses','latesttests','clients','recruitments','testimonials','clients','latestPosts','latestServices','countries','homepage_info','sliders','recuruitment_index'));
+        return view('welcome',compact('director','success_trails','legal_data','today','latestcourses','latesttests','clients','recruitments','testimonials','clients','latestPosts','latestServices','countries','homepage_info','sliders','recuruitment_index'));
     }
 
 

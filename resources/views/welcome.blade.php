@@ -468,52 +468,83 @@
             </section>
         @endif
 
-        @if(count($latesttests) > 0)
-            <section class="prt-row home03-services-section clearfix">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!--section-title -->
-                        <div class="section-title title-style-center_text">
-                            <div class="title-header">
-                                <h3>Trainings and tests</h3>
-                                <h2 class="title">Get the best trainings <br>you deserve <span></span></h2>
+        @if(count($latestcourses) > 0)
+            <section class="prt-row home01-services-section bg-img1 bg-base-grey prt-bg prt-bgimage-yes clearfix">
+                <div class="prt-row-wrapper-bg-layer prt-bg-layer"></div>
+                <div class="container" data-aos="fade-up">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-10 m-auto">
+                            <!--section-title-->
+                            <div class="section-title title-style-center_text">
+                                <div class="title-header">
+                                    <h3>OUR SUCCESS TRAIL</h3>
+                                    <h2 class="title">Amazing success stories <br> and <span>Trails</span></h2>
+                                </div>
+                            </div><!--section-title end-->
+                        </div>
+                    </div>
+                    <div class="row slick_slider" data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "arrows":false, "dots":false, "autoplay":true, "infinite":true, "responsive": [{"breakpoint":1024,"settings":{"slidesToShow": 2}} , {"breakpoint":991,"settings":{"slidesToShow": 2}}, {"breakpoint":575,"settings":{"slidesToShow": 1}}]}'>
+                        @foreach(@$success_trails as $index=>$latest)
+                            <div class="col-lg-6">
+                                <div class="featured-imagebox featured-imagebox-services style1">
+                                    <div class="featured-thumbnail">
+                                        <img class="img-fluid" src="{{ asset('/images/success_trail/'.$latest->image) }}" alt="blog_img" style="transform: none;">
+                                    </div><!-- featured-thumbnail end-->
+                                </div>
                             </div>
-                        </div><!--section-title-end -->
+                        @endforeach
+
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="prt-tabs slider-tab">
-                            <div class="content-tab">
-                                <div class="row">
-                                    @foreach(@$latesttests as $index=>$latest)
-                                        <div class="col-lg-4 col-md-6">
-                                            <!-- featured-imagebox -->
-                                            <div class="featured-imagebox featured-imagebox-tab">
-                                                <div class="featured-thumbnail">
-                                                    <img class="img-fluid lazy" width="656" height="484" data-src="{{ @$latest->image ? asset('/images/test_preparation/thumb/thumb_'.@$latest->image):''}}"  alt="gallery-img">
-                                                </div>
-                                                <div class="featured-content bg-base-grey">
-                                                    <div class="featured-title">
-                                                        <h3><a href="{{ route('test-preparation.single', $latest->slug) }}">  {{ $latest->title ?? ''}}</a></h3>
+            </section>
+        @endif
+
+        @if(count($latesttests) > 0)
+            <section class="prt-row home03-services-section clearfix">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <!--section-title -->
+                            <div class="section-title title-style-center_text">
+                                <div class="title-header">
+                                    <h3>Trainings and tests</h3>
+                                    <h2 class="title">Get the best trainings <br>you deserve <span></span></h2>
+                                </div>
+                            </div><!--section-title-end -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="prt-tabs slider-tab">
+                                <div class="content-tab">
+                                    <div class="row">
+                                        @foreach(@$latesttests as $index=>$latest)
+                                            <div class="col-lg-4 col-md-6">
+                                                <!-- featured-imagebox -->
+                                                <div class="featured-imagebox featured-imagebox-tab">
+                                                    <div class="featured-thumbnail">
+                                                        <img class="img-fluid lazy" width="656" height="484" data-src="{{ @$latest->image ? asset('/images/test_preparation/thumb/thumb_'.@$latest->image):''}}"  alt="gallery-img">
                                                     </div>
-                                                    <div class="featured-desc text-justify">
-                                                        <p>
-                                                            {{ elipsis( strip_tags($latest->summary ?? '') )}}
-                                                        </p>
+                                                    <div class="featured-content bg-base-grey">
+                                                        <div class="featured-title">
+                                                            <h3><a href="{{ route('test-preparation.single', $latest->slug) }}">  {{ $latest->title ?? ''}}</a></h3>
+                                                        </div>
+                                                        <div class="featured-desc text-justify">
+                                                            <p>
+                                                                {{ elipsis( strip_tags($latest->summary ?? '') )}}
+                                                            </p>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            </div><!-- featured-imagebox end-->
-                                        </div>
-                                    @endforeach
+                                                </div><!-- featured-imagebox end-->
+                                            </div>
+                                        @endforeach
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
         @endif
 
         @if(count($clients) > 0)
