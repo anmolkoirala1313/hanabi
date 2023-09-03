@@ -16,6 +16,13 @@
         .profile-foreground-img-file-input {
             display: none;
         }
+        .select2-container--default .select2-selection--single {
+            background-color: #fff;
+            border: 1px solid #ced4db;
+            border-radius: 4px;
+            height: 40px;
+            padding: 5px 2px;
+        }
     </style>
 @endsection
 @section('content')
@@ -56,6 +63,18 @@
                                 <input type="text" class="form-control" name="title" value="{{ @$edit->title }}" required>
                                 <div class="invalid-feedback">
                                     Please enter the title.
+                                </div>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label>Country</label>
+                                <select class="form-control select2" name="country">
+                                    <option disabled>Select Country</option>
+                                    @foreach($countries as $key => $value)
+                                        <option value="{{$key}}" {{ @$edit->country == $key ? 'selected':'' }}>{{$value}}</option>
+                                    @endforeach
+                                </select>
+                                <div class="invalid-feedback">
+                                    Please select the country.
                                 </div>
                             </div>
                             <div class="mb-3">

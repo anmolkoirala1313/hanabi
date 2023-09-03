@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\DB;
-
+use CountryState;
 
 class CourseController extends Controller
 {
@@ -49,7 +49,8 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('backend.course.create');
+        $countries    = CountryState::getCountries();
+        return view('backend.course.create',compact('countries'));
     }
 
     /**
@@ -66,6 +67,7 @@ class CourseController extends Controller
                 'title'                 => $request->input('title'),
                 'slug'                  => $this->model->changeToSlug($request->input('title')),
                 'code'                  => strtok($request['title'], " ").'-COR-'.rand(1,500),
+                'country'               => $request->input('country'),
                 'description'           => $request->input('description'),
                 'status'                => $request->input('status'),
                 'image'                 => $request->input('image'),
@@ -96,6 +98,7 @@ class CourseController extends Controller
             }
 
             $course = $this->model->create($data);
+
             if(count($request['detail_title']) > 0) {
                 $this->createCourseDetails($course, $request);
             }
@@ -115,11 +118,13 @@ class CourseController extends Controller
     public function createCourseDetails($course, $request)
     {
         foreach ($request['detail_title'] as $index=>$title){
-            CourseDescription::create([
-                'course_id'     => $course->id,
-                'title'         => $title,
-                'description'   => $request['detail_description'][$index] ?? null,
-            ]);
+            if ($title){
+                CourseDescription::create([
+                    'course_id'     => $course->id,
+                    'title'         => $title,
+                    'description'   => $request['detail_description'][$index] ?? null,
+                ]);
+            }
         }
     }
 
@@ -142,9 +147,10 @@ class CourseController extends Controller
      */
     public function edit($id)
     {
-        $edit           = Course::find($id);
+        $edit         = Course::find($id);
+        $countries    = CountryState::getCountries();
 
-        return view('backend.course.edit',compact('edit'));
+        return view('backend.course.edit',compact('edit','countries'));
     }
 
     /**
@@ -162,6 +168,7 @@ class CourseController extends Controller
             $course->title                 = $request->input('title');
             $course->code                  = strtok($request->input('title'), " ").'-COR-'.rand(1,500);
             $course->slug                  = $this->model->changeToSlug($request->input('title'));
+            $course->country               = $request->input('country');
             $course->description           = $request->input('description');
             $course->status                = $request->input('status');
             $course->meta_title            = $request->input('meta_title');
@@ -199,16 +206,18 @@ class CourseController extends Controller
                 $db_values = $course->courseDescription ? $course->courseDescription->pluck('id'):[];
 
                 foreach ($request['detail_title'] as $index=>$title){
-                    $data = [
-                        'course_id'     => $course->id,
-                        'title'         => $title,
-                        'description'   => $request['detail_description'][$index] ?? null,
-                    ];
-                    if($request['detail_id'][$index]){
-                        $course_description = CourseDescription::find($request['detail_id'][$index]);
-                        $course_description->update($data);
-                    }else{
-                        CourseDescription::create($data);
+                    if ($title){
+                        $data = [
+                            'course_id'     => $course->id,
+                            'title'         => $title,
+                            'description'   => $request['detail_description'][$index] ?? null,
+                        ];
+                        if($request['detail_id'][$index]){
+                            $course_description = CourseDescription::find($request['detail_id'][$index]);
+                            $course_description->update($data);
+                        }else{
+                            CourseDescription::create($data);
+                        }
                     }
                 }
 

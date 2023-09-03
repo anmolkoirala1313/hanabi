@@ -20,6 +20,13 @@
                 pointer-events: none;
                 opacity: 0.8;
             }
+            .select2-container--default .select2-selection--single {
+                background-color: #fff;
+                border: 1px solid #ced4db;
+                border-radius: 4px;
+                height: 40px;
+                padding: 5px 2px;
+            }
     </style>
 @endsection
 @section('content')
@@ -59,6 +66,18 @@
                                     <input type="text" class="form-control" name="title" required>
                                     <div class="invalid-feedback">
                                         Please enter the title.
+                                    </div>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label>Country</label>
+                                    <select class="form-control select2" name="country">
+                                        <option disabled>Select Country</option>
+                                        @foreach($countries as $key => $value)
+                                            <option value="{{$key}}">{{$value}}</option>
+                                        @endforeach
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select the country.
                                     </div>
                                 </div>
                                 <div class="mb-3">
@@ -140,7 +159,7 @@
                                         <div class="multi-field custom-card mt-3" style="border-bottom: double #e3e3e3; ">
                                             <label>Title </label>
                                             <div class="input-group mb-3">
-                                                <input type="text" class="form-control" id="detail_title" name="detail_title[]" required/>
+                                                <input type="text" class="form-control" id="detail_title" name="detail_title[]" />
                                                 <button class="btn btn-danger remove-field"><i class="ri-delete-bin-line" aria-hidden="true"></i></button>
                                                 <div class="invalid-feedback">
                                                     Please enter a title.

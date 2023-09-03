@@ -57,7 +57,7 @@
                                         <tr>
                                             <th>Feature Image</th>
                                             <th>Title</th>
-                                            <th>Code</th>
+                                            <th>Country</th>
                                             <th>Status</th>
                                             <th class="text-right">Action</th>
                                         </tr>
@@ -74,7 +74,7 @@
                                                         {{ ucwords(@$course->title) }}
                                                     </td>
                                                     <td >
-                                                        {{ ucwords(@$course->code) }}
+                                                        {{ $course->getCountryName(@$course->country) }}
                                                     </td>
                                                     <td>
                                                         <div class="btn-group view-btn" id="course-status-button-{{$course->id}}">

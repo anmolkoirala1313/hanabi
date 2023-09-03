@@ -8,6 +8,13 @@
     .select2-container--open {
     z-index: 9999999
     }
+    .select2-container--default .select2-selection--single {
+        background-color: #fff;
+        border: 1px solid #ced4db;
+        border-radius: 4px;
+        height: 40px;
+        padding: 5px 2px;
+    }
 @endsection
 @section('content')
 
