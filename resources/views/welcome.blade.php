@@ -469,7 +469,7 @@
         @endif
 
         @if(count($latestcourses) > 0)
-            <section class="prt-row home01-services-section bg-img1 bg-base-grey prt-bg prt-bgimage-yes clearfix">
+            <section class="prt-row home01-services-section bg-img1 bg-base-grey prt-bg prt-bgimage-yes clearfix" style="margin-top: -70px;padding: 130px 0 126px;">
                 <div class="prt-row-wrapper-bg-layer prt-bg-layer"></div>
                 <div class="container" data-aos="fade-up">
                     <div class="row">
