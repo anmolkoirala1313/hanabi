@@ -1347,7 +1347,7 @@ nav.main-menu ul.menu > li.mega-menu-item:hover > a {
     position: unset;
 }
 .prt-header-style-01 .header_extra {
-    padding-left: 35px;
+    padding-left: 0px;
 }
 .prt-header-style-01 .header_search .header_search_content {
     position: unset;
