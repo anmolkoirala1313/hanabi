@@ -47,7 +47,7 @@
                         <div class="prt-blog-classic-content">
                             <div class="row">
                                 @foreach($rows as $index=>$latest)
-                                    <div class="col-lg-6 col-md-6">
+                                    <div class="col-lg-6 col-md-6 {{ $index > 1 ? "mt-3":'' }}">
                                         <div class="feaured-imagebox featured-imagebox-services style2">
                                             <div class="prt-box-view-overlay prt-portfolio-box-view-overlay">
                                                 <div class="featured-thumbnail">

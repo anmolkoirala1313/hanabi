@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="{{ucwords(@$setting_data->meta_description ?? 'Unity Center')}} "/>
-    <meta name="keywords" content="{{@$setting_data->meta_tags ?? 'Unity Center'}}">
+    <meta name="description" content="{{ucwords(@$setting_data->meta_description ?? 'Hanabi International')}} "/>
+    <meta name="keywords" content="{{@$setting_data->meta_tags ?? 'Hanabi International'}}">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link rel="canonical" href="https://www.hanabi.com.np" />
 
@@ -98,7 +98,7 @@
                                 <div class="site-branding me-auto">
                                     <h1>
                                         <a class="home-link" href="/" title="{{ $setting_data->website_name ?? 'Hanabi' }}" rel="home">
-                                            <img id="logo-img" height="48" width="147" class="img-fluid auto_size" src="i{{$setting_data->logo ? asset('/images/settings/'.@$setting_data->logo):''}}" alt="logo-img">
+                                            <img id="logo-img" height="122" width="270" style="max-height: 95px;" class="img-fluid auto_size" src="{{$setting_data->logo ? asset('/images/settings/'.@$setting_data->logo):''}}" alt="logo-img">
                                         </a>
                                     </h1>
                                 </div><!-- site-branding end -->

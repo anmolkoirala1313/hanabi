@@ -8,7 +8,7 @@
                         <img width="60" height="60" class="lazy" data-src="{{ @$latest->image ? asset('/images/course/thumb/thumb_'.@$latest->image):''}}"  alt="">
                     </div>
                     <div class="post-detail">
-                        <span class="post-date">{{date('d M Y', strtotime($latest->created_at))}}</span>
+{{--                        <span class="post-date">{{date('d M Y', strtotime($latest->created_at))}}</span>--}}
                         <a href="{{ route('study-abroad.single',$latest->slug ) }}">
                             {{ $latest->title ?? '' }}
                         </a>
