@@ -72,5 +72,26 @@
             </div>
         </div>
     </aside>
+    <aside class="widget widget-search with-title">
+        <h3 class="widget-title">Apply Now</h3>
+        <form role="search" method="get" class="search-form row" action="{{route('contact.store')}}">
+            <div class="col-md-6 mb-2">
+                <input name="name" type="text" value="" placeholder="Full Name" required="required" />
+            </div>
+            <div class="col-md-6">
+                <input name="phone" type="text" value="" placeholder="Phone" required="required" />
+            </div>
+            <div class="col-md-12 mb-2">
+                <input name="subject" type="text" value="" placeholder="Subject" required="required" />
+            </div>
+            <div class="col-md-12">
+                <textarea name="message" rows="2" placeholder="Message" required="required"></textarea>
+            </div>
+            <div class="mt-3">
+                <button class="submit prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor"
+                        type="submit" value="submit">Submit Here</button>
+            </div>
+        </form>
+    </aside>
 </div>
 

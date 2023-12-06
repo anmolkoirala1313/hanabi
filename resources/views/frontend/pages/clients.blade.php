@@ -93,7 +93,7 @@
 
 @endsection
 @section('js')
-    <script src="http://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/jquery.mixitup/latest/jquery.mixitup.min.js"></script>
     <script>
         $('#portfolio').mixItUp({
 

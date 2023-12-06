@@ -63,7 +63,7 @@ Route::get('slider-list/{slug}','App\Http\Controllers\FrontController@sliderSing
 
 //end blog
 
-Route::get('/clients', 'App\Http\Controllers\FrontController@clients')->name('client.frontend');
+Route::get('/university', 'App\Http\Controllers\FrontController@clients')->name('client.frontend');
 
 Route::get('/our-category', 'App\Http\Controllers\FrontController@category')->name('category.frontend');
 Route::get('our-category/{slug}','App\Http\Controllers\FrontController@categorySingle')->name('category.single');
@@ -367,6 +367,14 @@ Route::group(['prefix' => 'auth', 'middleware' => ['auth']], function () {
     Route::delete('/video/{teams}', 'App\Http\Controllers\VideoGalleryController@destroy')->name('video.destroy');
     Route::get('/video-gallery/{video}/edit', 'App\Http\Controllers\VideoGalleryController@edit')->name('video.edit');
     Route::post('/video-gallery/update/gallery', 'App\Http\Controllers\VideoGalleryController@videoUpdate')->name('video.galleryUpdate');
+
+
+    Route::get('/city', 'App\Http\Controllers\CityController@index')->name('city.index');
+    Route::get('/city/create', 'App\Http\Controllers\CityController@create')->name('city.create');
+    Route::post('/city', 'App\Http\Controllers\CityController@store')->name('city.store');
+    Route::put('/city/{city}', 'App\Http\Controllers\CityController@update')->name('city.update');
+    Route::delete('/city/{city}', 'App\Http\Controllers\CityController@destroy')->name('city.destroy');
+    Route::get('/city/{city}/edit', 'App\Http\Controllers\CityController@edit')->name('city.edit');
 
 });
 

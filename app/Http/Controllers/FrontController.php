@@ -6,6 +6,7 @@ use App\Models\Album;
 use App\Models\Blog;
 use App\Models\BlogCategory;
 use App\Models\Career;
+use App\Models\City;
 use App\Models\Course;
 use App\Models\Faq;
 use App\Models\Job;
@@ -43,12 +44,7 @@ class FrontController extends Controller
     protected $bcategory = null;
     protected $faq = null;
     protected $service = null;
-    protected $pojectPlan = null;
-    protected $customer_package = null;
     protected $career = null;
-    protected $apply_job = null;
-    protected $our_work = null;
-    protected $request_quote = null;
     protected $home_page = null;
     protected $page = null;
     protected $pagesection = null;
@@ -73,7 +69,7 @@ class FrontController extends Controller
 
     public function index()
     {
-        $clients            = $this->client->latest()->take(15)->get();
+        $clients            = $this->client->latest()->get();
         $latestServices     = $this->service->latest()->take(6)->get();
         $countries          = CountryState::getCountries();
         $sliders            = $this->slider->where('status','active')->latest()->get();
@@ -86,11 +82,12 @@ class FrontController extends Controller
         $latestcourses      = Course::latest()->take(5)->get();
         $latesttests        = TestPreparation::latest()->take(6)->get();
         $success_trails     = SuccessTrail::latest()->get();
+        $cities             = City::latest()->get();
         $recuruitment_index = [3,7,11,15];
         $legal_data         = get_legal_documents();
         $country_course     = Course::whereNotNull('country')->select('courses.country')->get()->groupBy('country');
 
-        return view('welcome',compact('director','success_trails','legal_data','today','latestcourses','latesttests','clients','recruitments','testimonials','clients','latestPosts','latestServices','countries','homepage_info','sliders','recuruitment_index'));
+        return view('welcome',compact('director','success_trails','cities','legal_data','today','latestcourses','latesttests','clients','recruitments','testimonials','clients','latestPosts','latestServices','countries','homepage_info','sliders','recuruitment_index'));
     }
 
 
@@ -489,7 +486,7 @@ class FrontController extends Controller
     }
 
     public function testPreparation(){
-        $rows    = TestPreparation::orderBy('created_at', 'desc')->paginate(9);
+        $rows    = TestPreparation::orderBy('created_at', 'desc')->paginate(6);
         $latestTests  = TestPreparation::orderBy('created_at', 'DESC')->where('status','publish')->take(4)->get();
 
         return view('frontend.pages.test_preparation.index',compact('rows','latestTests'));

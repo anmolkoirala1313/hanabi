@@ -139,6 +139,45 @@
             </section>
         @endif
 
+        @if(count($cities) > 0)
+            <section class="prt-row home01-services-section bg-img1 bg-base-grey prt-bg prt-bgimage-yes clearfix" style="margin-top: -70px;padding: 80px 0 126px;">
+                <div class="prt-row-wrapper-bg-layer prt-bg-layer"></div>
+                <div class="container" data-aos="fade-up">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-10 m-auto">
+                            <!--section-title-->
+                            <div class="section-title title-style-center_text">
+                                <div class="title-header">
+                                    <h3>OUR SUCCESS TRAIL</h3>
+                                    <h2 class="title">Amazing success stories <br> and <span>Trails</span></h2>
+                                </div>
+                            </div><!--section-title end-->
+                        </div>
+                    </div>
+                    <div class="row slick_slider" data-slick='{"slidesToShow": 3, "slidesToScroll": 1, "arrows":false, "dots":false, "autoplay":true, "infinite":true, "responsive": [{"breakpoint":1024,"settings":{"slidesToShow": 2}} , {"breakpoint":991,"settings":{"slidesToShow": 2}}, {"breakpoint":575,"settings":{"slidesToShow": 1}}]}'>
+                        @foreach(@$cities as $index=>$latest)
+                            <div class="col-lg-3 col-md-6 col-sm-6">
+                                <!-- featured-imagebox -->
+                                <div class="featured-imagebox featured-imagebox-portfolio style1">
+                                    <div class="featured-imagebox-wrapper">
+                                        <div class="featured-thumbnail">
+                                            <img width="656" height="484" class="img-fluid" src="{{ asset('/images/city/'.$latest->image) }}" alt="image">
+                                        </div>
+                                        <div class="featured-content">
+                                            <div class="featured-title">
+                                                <h3><a>{{$latest->title}}</a></h3>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div><!-- featured-imagebox end-->
+                            </div>
+                        @endforeach
+
+                    </div>
+                </div>
+            </section>
+        @endif
+
         <section class="prt-row about01-why-us-section prt-bg prt-bgimage-yes bg-img2 bg-base-dark clearfix">
             <div class="prt-row-wrapper-bg-layer prt-bg-layer"></div>
             <div class="container">
@@ -373,16 +412,16 @@
                                                         <h4 class="prt-fid-inner">
                                                                 <span   data-appear-animation="animateDigits"
                                                                         data-from="0"
-                                                                        data-to="852"
+                                                                        data-to="{{@$homepage_info->project_completed ?? '450'}}"
                                                                         data-interval="50"
                                                                         data-before=""
                                                                         data-before-style="sup"
                                                                         data-after="+"
                                                                         data-after-style="sub"
-                                                                        class="numinate">852
+                                                                        class="numinate">{{@$homepage_info->project_completed ?? '450'}}
                                                                 </span>
                                                         </h4>
-                                                        <h3 class="prt-fid-title">Projects Are Completed</h3>
+                                                        <h3 class="prt-fid-title">Projects Completed</h3>
                                                     </div>
                                                 </div>
                                                 <div class="prt-fid inside style1 bg-base-skin">
@@ -390,16 +429,16 @@
                                                         <h4 class="prt-fid-inner">
                                                                 <span   data-appear-animation="animateDigits"
                                                                         data-from="0"
-                                                                        data-to="852"
+                                                                        data-to="{{@$homepage_info->happy_clients ?? '660'}}"
                                                                         data-interval="50"
                                                                         data-before=""
                                                                         data-before-style="sup"
                                                                         data-after="+"
                                                                         data-after-style="sub"
-                                                                        class="numinate">852
+                                                                        class="numinate">{{@$homepage_info->happy_clients ?? '660'}}
                                                                 </span>
                                                         </h4>
-                                                        <h3 class="prt-fid-title">Projects Are Completed</h3>
+                                                        <h3 class="prt-fid-title">Happy Clients</h3>
                                                     </div>
                                                 </div>
                                                 <div class="prt-fid inside style1 bg-base-skin">
@@ -407,16 +446,16 @@
                                                         <h4 class="prt-fid-inner">
                                                                 <span   data-appear-animation="animateDigits"
                                                                         data-from="0"
-                                                                        data-to="900"
+                                                                        data-to="{{@$homepage_info->visa_approved ?? '340'}}"
                                                                         data-interval="100"
                                                                         data-before=""
                                                                         data-before-style="sup"
                                                                         data-after="+"
                                                                         data-after-style="sub"
-                                                                        class="numinate">900
+                                                                        class="numinate">{{@$homepage_info->visa_approved ?? '340'}}
                                                                 </span>
                                                         </h4>
-                                                        <h3 class="prt-fid-title">Gave Sigange Advice</h3>
+                                                        <h3 class="prt-fid-title">Visa Approved</h3>
                                                     </div>
                                                 </div>
                                                 <div class="prt-fid inside style1 bg-base-skin">
@@ -424,16 +463,16 @@
                                                         <h4 class="prt-fid-inner">
                                                                 <span   data-appear-animation="animateDigits"
                                                                         data-from="0"
-                                                                        data-to="630"
+                                                                        data-to="{{@$homepage_info->success_stories ?? '987'}}"
                                                                         data-interval="50"
                                                                         data-before=""
                                                                         data-before-style="sup"
                                                                         data-after="+"
                                                                         data-after-style="sub"
-                                                                        class="numinate">8630
+                                                                        class="numinate">{{@$homepage_info->success_stories ?? '987'}}
                                                                 </span>
                                                         </h4>
-                                                        <h3 class="prt-fid-title">Clients Are Satisfied</h3>
+                                                        <h3 class="prt-fid-title">Success Stories</h3>
                                                     </div>
                                                 </div>
                                             </div>
@@ -450,10 +489,9 @@
                                 <?php $split = explode(" ", @$homepage_info->why_heading);?>
 
                                 <!-- section title -->
-                                    <div class="section-title style2">
+                                    <div class="section-title style2" style="margin-bottom: 15px;">
                                         <div class="title-header">
                                             <h3>Why choose us</h3>
-                                            {{ @$homepage_info->why_heading ?? '' }}
                                             <h2 class="title">{{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$homepage_info->why_heading)."\n"}} <span> {{$split[count($split)-1]}}</span></h2>
                                         </div>
                                     </div><!-- section title end -->
@@ -468,7 +506,7 @@
             </section>
         @endif
 
-        @if(count($latestcourses) > 0)
+        @if(count($success_trails) > 0)
             <section class="prt-row home01-services-section bg-img1 bg-base-grey prt-bg prt-bgimage-yes clearfix" style="margin-top: -70px;padding: 130px 0 126px;">
                 <div class="prt-row-wrapper-bg-layer prt-bg-layer"></div>
                 <div class="container" data-aos="fade-up">

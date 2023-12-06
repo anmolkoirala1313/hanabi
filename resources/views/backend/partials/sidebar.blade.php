@@ -156,6 +156,11 @@
                     </a>
                 </li>
 
+                <li class="nav-item">
+                    <a class="nav-link menu-link @if(\Request::route()->getName() == 'city.index') active @endif" href="{{route('city.index')}}">
+                        <i class="ri-landscape-line"></i> <span data-key="t-widgets">City</span>
+                    </a>
+                </li>
 
 
             </ul>
