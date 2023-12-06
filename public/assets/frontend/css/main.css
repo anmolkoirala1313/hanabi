@@ -2673,3 +2673,7 @@ section.error-404 .prt-404-img { margin-bottom: 35px; }
     line-height: 26px;
     margin-top: 15px;
 }
+
+.my-svg-class{
+    margin-bottom: 3px; /* Adds margin-bottom */
+}

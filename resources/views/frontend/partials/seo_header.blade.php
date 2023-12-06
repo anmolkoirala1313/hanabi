@@ -64,16 +64,16 @@
                             <div class="top_bar_contact_item top_bar_social ms-auto">
                                 <ul class="social-icons">
                                     @if(@$setting_data->facebook)
-                                        <li><a href="{{ @$setting_data->facebook }}"><span class="fab fa-twitter"></span></a></li>
+                                        <li><a href="{{ @$setting_data->facebook }}"><span class="fab fa-facebook"></span></a></li>
                                     @endif
                                     @if(@$setting_data->youtube)
-                                        <li><a href="{{ @$setting_data->youtube }}"><span class="fab fa-facebook-square"></span></a></li>
+                                        <li><a href="{{ @$setting_data->youtube }}"><span class="fab fa-youtube-play"></span></a></li>
                                     @endif
                                     @if(@$setting_data->instagram)
-                                        <li><a href="{{ @$setting_data->instagram }}"><span class="fab fa-pinterest-p"></span></a></li>
+                                        <li><a href="{{ @$setting_data->instagram }}"><span class="fab fa-instagram"></span></a></li>
                                     @endif
                                     @if(@$setting_data->linkedin)
-                                        <li><a href="{{ @$setting_data->linkedin }}"><span class="fab fa-instagram"></span></a></li>
+                                        <li><a href="{{ @$setting_data->linkedin }}"><span class="fab fa-linkedin"></span></a></li>
                                     @endif
                                     @if(!empty(@$setting_data->ticktock))
                                         <li><a href="{{ @$setting_data->ticktock }}"><span class="fa-brands fa-tiktok"></span></a></li>
