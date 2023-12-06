@@ -154,7 +154,7 @@
                                 <!-- header_extra -->
                                 <div class="header_extra d-flex flex-row align-items-center justify-content-end">
                                     <div class="header_btn">
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor" href="{{ route('contact') }}">Get A Quote</a>
+                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor" href="{{ route('contact') }}">Apply Now</a>
                                     </div>
                                 </div><!-- header_extra end -->
                             </div><!-- site-navigation end-->

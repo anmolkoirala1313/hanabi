@@ -232,8 +232,8 @@
                                         <div class="section-title title-style-center_text pt-40">
                                             <div class="title-header">
                                                 <h3>{{@$header_descp_elements->subheading ?? ''}}</h3>
-                                                <h2 class="title"> {{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$header_descp_elements->heading)."\n"}} <span>{{$split[count($split)-1]}}</span></h2>
-                                            </div>
+                                                <?php $split = explode(" ", @$header_descp_elements->heading);?>
+                                                <h2 class="title" style="font-size: 30px;line-height: 40px;">{{preg_replace('/\W\w+\s*(\W*)$/', '$1', @$header_descp_elements->heading)}} <span>{{$split[count($split)-1]}}</span></h2>                                            </div>
                                         </div>
                                     @endif
                                     <div class="prt-blog-single-content">
