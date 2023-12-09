@@ -48,33 +48,68 @@
                             <!-- section title -->
                             <div class="section-title style7">
                                 <div class="title-header">
-                                    <h2 class="title">Have any question? <br>feel free to <span>Contact</span></h2>
+                                    <h2 class="title">Have any question? <br>feel free to <span>Contact Us</span></h2>
                                 </div>
                             </div><!-- section title end -->
                             <form action="{{route('contact.store')}}" class="contact_form clearfix" method="post">
+                                @csrf
                                 <div class="row">
                                     <div class="col-md-12">
                                         <input name="name" type="text" value="" placeholder="Your Full Name" required="required">
                                     </div>
 
-                                    <div class="col-md-12">
+                                    <div class="col-md-6">
                                         <input name="email" type="text" value="" placeholder="Email Address" required="required">
                                     </div>
 
                                     <div class="col-md-6">
-                                        <input name="phone" type="text" value="" placeholder="Phone" />
+                                        <input name="phone" type="text" value="" placeholder="Phone" required="required"/>
+                                    </div>
+{{--                                    <div class="col-md-6">--}}
+{{--                                        <input name="subject" type="text" value="" placeholder="Subject" />--}}
+{{--                                    </div>--}}
+                                    <div class="col-md-6">
+                                        <select id="qualification" name="qualification" required="required">
+                                            <option value="">Select Qualification</option>
+                                            <option value="SEE/SLC">SEE/SLC</option>
+                                            <option value="A Levels">A Levels</option>
+                                            <option value="10+2/PCL">10+2/PCL</option>
+                                            <option value="Bachelors (3 Years)">Bachelors (3 Years)</option>
+                                            <option value="Bachelors (4 Years)">Bachelors (4 Years)</option>
+                                            <option value="Master's and Above">Master's and Above</option>
+                                        </select>
                                     </div>
                                     <div class="col-md-6">
-                                        <input name="subject" type="text" value="" placeholder="Subject" />
+                                        <select id="preparation_class" name="preparation_class" required="required">
+                                            <option value="">Preparation Class</option>
+                                            <option value="IELTS">IELTS</option>
+                                            <option value="PTE">PTE</option>
+                                        </select>
                                     </div>
-{{--                                    <div class="col-md-12">--}}
-{{--                                        <div class="select"><select id="selectbox" class="select-hidden">--}}
-{{--                                                <option value="hide">Services</option>--}}
-{{--                                                <option value="Babies">WordPress security</option>--}}
-{{--                                                <option value="Nannies">software integration</option>--}}
-{{--                                                <option value="Babies and nannies duo">Other</option>--}}
-{{--                                            </select><div class="select-styled">Services</div><ul class="select-options"><li rel="hide">Services</li><li rel="Babies">WordPress security</li><li rel="Nannies">software integration</li><li rel="Babies and nannies duo">Other</li></ul></div>--}}
-{{--                                    </div>--}}
+                                    <div class="col-md-6">
+                                        <select id="preferred_location" name="preferred_location" required="required">
+                                            <option value="">Location You Prefer</option>
+                                            <optgroup label="Kathmandu Office">
+                                                <option value="Putalisadak">Putalisadak</option>
+                                                <option value="Baneswor">Baneswor</option>
+                                                <option value="Kumaripati">Kumaripati</option>
+                                            </optgroup>
+                                            <option value="Pokhara">Pokhara</option>
+                                            <option value="Butwal">Butwal</option>
+                                            <option value="Chitwan">Chitwan</option>
+                                            <option value="Birtamode">Birtamode</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <select id="interested_country" name="interested_country" required="required">
+                                            <option value="">Interested Country</option>
+                                            <option value="Japan">Japan</option>
+                                            <option value="UK">UK</option>
+                                            <option value="USA">USA</option>
+                                            <option value="Canada">Canada</option>
+                                            <option value="New Zealand">New Zealand</option>
+                                        </select>
+                                    </div>
                                     <div class="col-md-12">
                                         <textarea name="message" rows="4" placeholder="Your Message" required="required"></textarea>
                                     </div>

@@ -8,6 +8,7 @@ use App\Models\BlogCategory;
 use App\Models\Career;
 use App\Models\City;
 use App\Models\Course;
+use App\Models\CustomerInquiry;
 use App\Models\Faq;
 use App\Models\Job;
 use App\Models\JobCategory;
@@ -356,28 +357,46 @@ class FrontController extends Controller
     public function contactStore(Request $request)
     {
         $theme_data = Setting::first();
-            $data = array(
-                'fullname'          => $request->input('name'),
-                'message'           => $request->input('message'),
-                'email'             => $request->input('email'),
-                'subject'           => $request->input('subject'),
-                'customer_phone'    => $request->input('phone'),
-                'address'           => ucwords($theme_data->address),
-                'site_email'        => ucwords($theme_data->email),
-                'site_name'         => ucwords($theme_data->website_name),
-                'phone'             => ucwords($theme_data->phone),
-                'logo'              => ucwords($theme_data->logo),
-            );
+        $data = array(
+            'fullname'          => $request->input('name'),
+            'message'           => $request->input('message'),
+            'email'             => $request->input('email'),
+            'subject'           => $request->input('subject'),
+            'customer_phone'    => $request->input('phone'),
+            'address'           => ucwords($theme_data->address),
+            'site_email'        => ucwords($theme_data->email),
+            'site_name'         => ucwords($theme_data->website_name),
+            'phone'             => ucwords($theme_data->phone),
+            'logo'              => ucwords($theme_data->logo),
+        );
 
-            if(!app()->environment('local')){
-                if($theme_data->email){
-                    Mail::to($theme_data->email)->send(new ContactDetail($data));
-                }
+
+        $customer_inquiry = CustomerInquiry::create([
+            'name'                => $request->input('name'),
+            'email'               => $request->input('email'),
+            'phone'               => $request->input('phone'),
+            'subject'             => $request->input('subject'),
+            'qualification'       => $request->input('qualification'),
+            'preparation_class'   => $request->input('preparation_class'),
+            'preferred_location'  => $request->input('preferred_location'),
+            'interested_country'  => $request->input('interested_country'),
+            'message'             => $request->input('message'),
+            'status'              => 'pending',
+        ]);
+
+        if(!app()->environment('local')){
+            if($theme_data->email){
+                Mail::to($theme_data->email)->send(new ContactDetail($data));
             }
+        }
 
+        if ($customer_inquiry){
             Session::flash('success','Your message was submitted successfully');
+        }else{
+            Session::flash('error','Something went wrong.Please try again.');
+        }
 
-        return response()->json(route('contact'));
+        return redirect()->back();
     }
 
     public function careerSingle($slug){
